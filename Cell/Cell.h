@@ -2,18 +2,15 @@
 #ifndef CELL_H
 #define CELL_H
 
-class Cell {
-protected:  // Posisi dari cell dalam bentuk (x,y)
-    int x;
-    int y;
+#include "Renderable.h"
+
+class Cell: public Renderable{  
 public:
-    Cell();  // CTOR tanpa parameter
-    Cell(int,int);  // CTOR dengan parameter
+    Cell():Renderable(0,0);  // CTOR tanpa parameter
+    Cell(int x,int y):Renderable(x,y);  // CTOR dengan parameter
     // Getter dan setter dari value
     void setX(int);
     void setY(int);
-    int getX();
-    int getY();
 };
 
 #endif
