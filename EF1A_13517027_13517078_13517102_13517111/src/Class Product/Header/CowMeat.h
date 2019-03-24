@@ -6,7 +6,7 @@
 // Produk hasil dari sapi
 class CowMeat : public FarmProduct {
     public:
-        /// ctor default
+        // ctor default
         CowMeat();
 };
 
