@@ -5,7 +5,8 @@
 
 class ListOfLand {
 protected:
-    Land * LandList; // Array yang menyimpan land pada map
+    Land * LandList;
+    int nMax; // Array yang menyimpan land pada map
 public:
     ListOfLand(); // CTOR tanpa parameter
     ListOfLand(int n); // CTOR dengan parameter n sebagai jumlah maksimal land
@@ -13,7 +14,9 @@ public:
     ~ListOfLand(); // DTOR
     ListOfLand operator= (const ListOfLand& L); // Operator assignment
     // Getter
-    Land GetLand(int x,int y);
+    Land GetLand(int x,int y) const;
+    Land GetLand(int i) const;
+    int GetNMax() const;
 };
 
 #endif
