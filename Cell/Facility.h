@@ -10,7 +10,7 @@ public:
     Facility(); // CTOR tanpa parameter
     Facility(int _x,int _y, char _FacilityType); // CTOR dengan parameter
     // Getter dan setter
-    char GetTypeOfFacility();
+    char GetTypeOfFacility() const;
     void SetTypeOfFacility(char _FacilityType);
 };
 

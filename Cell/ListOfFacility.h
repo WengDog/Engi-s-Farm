@@ -5,7 +5,8 @@
 
 class ListOfFacility {
 protected:
-    Facility * FacilityList; // Array yang menyimpan facility pada map
+    Facility * FacilityList;
+    int nMax; // Array yang menyimpan facility pada map
 public:
     ListOfFacility(); // CTOR tanpa parameter
     ListOfFacility(int n); // CTOR dengan parameter n sebagai jumlah maksimal facility
@@ -14,6 +15,8 @@ public:
     ListOfFacility operator= (const ListOfFacility& L); // Operator assignment
     // Getter
     Facility GetFacility(int x,int y);
+    Facility GetFacility(int i) const;
+    int GetNMax() const;
 };
 
 #endif
