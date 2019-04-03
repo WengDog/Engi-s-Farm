@@ -1,7 +1,7 @@
 /* Kelas renderable adalah kelas abstrak membantu menampilkan objek*/
 
-#ifndef RENDERERABLE_H
-#define RENDERERABLE_H
+#ifndef RENDERABLE_H
+#define RENDERABLE_H
 
 #include <iostream>
 
@@ -13,15 +13,18 @@ class Renderable{
         //posx = posisi absis
         //posy = posisi ordinat
         int posx, posy;
+        
+        //waktu pada games
+        int time;
 
     public:
         //method untuk mengembalikan karakter yang merepresentasikan objek
         virtual char render() = 0;
 
         //method untuk mendapatkan absis object
-        virtual int getposx();
+        int getposx();
         //method untuk mendapatkan ordinat object
-        virtual int getposy();
+        int getposy();
 };
 
 #endif
