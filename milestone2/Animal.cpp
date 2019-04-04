@@ -1,5 +1,9 @@
 #include "Animal.h"
 
+Animal::Animal(){
+
+}
+
 void Animal::moveDown(){
 
 }

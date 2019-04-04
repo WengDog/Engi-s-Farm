@@ -37,12 +37,14 @@
 #include "Land.h"
 #include "Facility.h"
 #include "Cell.h"
+#include "MatrixOfAnimal.h"
 
 class Game{
     protected:
         Player player;
         MatrixOfLand map_land;
         MatrixOfFacility map_facility;
+        MatrixOfAnimal map_animal;
         int rowMap;
         int colMap;
 
@@ -70,8 +72,14 @@ class Game{
         //print status game
         void printGame();
 
+        //input Game Land
+        void inputLand();
+
+        //input Animal Map
+        void inputAnimalMap();
+
         //input Game Map
-        void inputMap(string);
+        void inputMap();
 
         //method moveup
         void MOVEUP();

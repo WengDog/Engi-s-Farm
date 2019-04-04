@@ -3,7 +3,7 @@
 #include "Facility.h"
 
 Facility::Facility():Cell() {
-    TypeOfFacility = 'T';
+    TypeOfFacility = '.';
 }
 
 Facility::Facility(int _x,int _y, char _FacilityType):Cell(_x,_y) {

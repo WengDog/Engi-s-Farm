@@ -8,6 +8,7 @@ using namespace std;
 //Basis kelas abstrak
 class Animal : public Renderable{
     public:
+    Animal();
     void moveUp(); //gerak 1 petak ke atas
     void moveDown(); //gerak 1 petak ke bawah
     void moveLeft(); //gerak 1 petak ke kiri
@@ -18,7 +19,7 @@ class Animal : public Renderable{
 
     //implementasi render
     char render();
-    
+
     protected:
     bool meat, milk, egg;
 };

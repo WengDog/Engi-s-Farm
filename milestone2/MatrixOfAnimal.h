@@ -3,19 +3,20 @@
 
 #include "Animal.h"
 
+
 class MatrixOfAnimal{
     protected:
-        Animal ** AnimalMatrix;
+        Animal *** AnimalMatrix;
         int BarMax;
         int KolMax;
-    
+
     public:
         //CTOR Tanpa Parameter
         MatrixOfAnimal();
         //User defined CTOR
         MatrixOfAnimal(int x,int y);
         //CCTOR
-        MatrixOfAnimal(const MatrixOfAnimal& L);
+        MatrixOfAnimal(const MatrixOfAnimal&);
         //DTOR
         ~MatrixOfAnimal();
 
@@ -23,12 +24,12 @@ class MatrixOfAnimal{
         MatrixOfAnimal& operator=(const MatrixOfAnimal&);    
 
         //Getter
-        Animal GetAnimal(int x,int y) const;
+        Animal& GetAnimal(int x,int y);
         int GetBarMax() const;
         int GetKolMax() const;
 
-        //settter
-        void setAnimal(int,int,Animal);
+        Animal*** GetAnimalMatrix();
+
 };
 
 #endif

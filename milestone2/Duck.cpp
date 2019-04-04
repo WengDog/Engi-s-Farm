@@ -2,7 +2,7 @@
 
 //ctor default
 Duck::Duck() {
-    isHorseAlive = true;
+    isDuckAlive = true;
     timeHungryDuck = 17;
 }
 

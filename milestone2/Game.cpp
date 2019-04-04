@@ -11,16 +11,20 @@ Game::Game(){
     player.setwaterContainer(10);
     
     //set map size
-    rowMap = 5;
-    colMap = 5;
+    rowMap = 15;
+    colMap = 15;
 
     //inisialisasi map
-    MatrixOfLand temp_map(5, 5);
+    MatrixOfLand temp_map(15, 15);
     map_land = temp_map;
 
     //inisialisasi fasilitas
-    MatrixOfFacility temp_Facility(5, 5);
+    MatrixOfFacility temp_Facility(15, 15);
     map_facility = temp_Facility;
+
+    //inisialisasi matriks animal
+    MatrixOfAnimal temp_animal(15,15);
+    map_animal = temp_animal;
 }
 
 Game::Game(string playername){
@@ -31,15 +35,15 @@ Game::Game(string playername){
 
     
     //set map size
-    rowMap = 5;
-    colMap = 5;
+    rowMap = 15;
+    colMap = 15;
 
     //inisialisasi map
-    MatrixOfLand temp_map(5, 5);
+    MatrixOfLand temp_map(15, 15);
     map_land = temp_map;
 
     //inisialisasi fasilitas
-    MatrixOfFacility temp_Facility(5, 5);
+    MatrixOfFacility temp_Facility(15, 15);
     map_facility = temp_Facility;
 }
 
@@ -60,98 +64,99 @@ void Game::MIX(){
 }
 
 void Game::TALK(){
-    
+    player.Talk()
 }
 
 void Game::MOVEUP(){
-    player.moveUp(map_land);
+    player.moveUp(map_land, map_facility);
 }
 
 void Game::MOVEDOWN(){
-    player.moveDown(map_land);
+    player.moveDown(map_land, map_facility);
 }
 
 void Game::MOVELEFT(){
-    player.moveLeft(map_land);
+    player.moveLeft(map_land, map_facility);
 }
 
 void Game::MOVERIGHT(){
-    player.moveRight(map_land);
+    player.moveRight(map_land, map_facility);
 }
 
 void Game::printGame(){
-    // cout << rowMap << " " << colMap << '\n';
-    // cout << player.getposx() << " " << player.getposy() << '\n';
     for (int i = 0; i < rowMap; i++){
         for (int j = 0; j < colMap; j++){
-            if (i == player.getposx() && j == player.getposy()){
+            if (i == player.getposx() && j == player.getposy())
                 cout << 'P';
-            }
             else {
-                char f = map_facility.GetFacility(i, j).GetTypeOfFacility();
-                char l = map_land.GetLand(i, j).GetTypeOfLand();
-                if (f == '.')
-                    cout << l;
-                else cout << f;
+                if (map_animal.GetAnimalMatrix()[i][j] != nullptr){
+                    cout << map_animal.GetAnimalMatrix()[i][j]->render();
+                }else {
+                    if (map_facility.GetFacility(i, j).GetTypeOfFacility() != '.'){
+                        cout << map_facility.GetFacility(i,j).GetTypeOfFacility();                        
+                    }else {
+                        cout << map_land.GetLand(i,j).GetTypeOfLand();
+                    }
+                }
             }
+            cout << " ";
         }
         cout << '\n';
     }
 }
 
-void Game::inputMap(string s){
-    // for (int i = 0; i < rowMap; i++){
-    //     for (int j = 0; j < colMap; j++){
-    //         char c;
-    //         cin >> c;
-    //         if (c == 'W' || c == 'M' || c == 'T'){
-    //             //facility
-    //             Facility now(i, j, c);
-    //             map_facility.setFacility(i, j, now);
-
-    //             //land
-    //             Land tanah(i, j, '.', false, false);
-    //             map_land.setLand(i,j,tanah);
-
-    //         }else if (c == 'P'){
-    //             //player
-    //             player.setposx(i); player.setposy(j);
-
-    //             //facility
-    //             Facility now(i, j, '.');
-    //             map_facility.setFacility(i, j, now);
-
-    //             //land
-    //             Land tanah(i, j, '.', false, false);
-    //             map_land.setLand(i,j,tanah);
-    //         }else if (c == 'C' || c == 'G' || c == 'B'){
-    //             //kategori land
-    //             //C = Coop G = Grassland B = Barn
-    //             Land tanah(i, j, c, false, false);
-    //             map_land.setLand(i,j,tanah);
-
-    //             //facility
-    //             Facility now(i, j, '.');
-    //             map_facility.setFacility(i, j, now);
-    //         }
-    //         else if (c == '*' || c == '@' || c == '#'){
-    //             //land
-    //             Land tanah(i, j, c, false, true);
-    //             map_land.setLand(i,j,tanah);
-
-    //             //facility
-    //             Facility now(i, j, '.');
-    //             map_facility.setFacility(i, j, now);
-    //         }
-    //     }
-    // }
+void Game::inputLand(){
     ifstream file;
-    file.open(s);
+    file.open("Land.txt");
     for (int i = 0; i < rowMap; i++){
-        for (int j = 0; j < rowMap; j++){
+        for (int j = 0; j < colMap; j++){
             char inp;
+            bool isgrass = false;
             file >> inp;
+            if (inp == '*' || inp == '#' 
+            || inp == '@') isgrass = true;
+
+            if (inp == 'T' || inp == 'W' || inp == 'M') {
+                Facility f(i, j, inp);
+                map_facility.setFacility(i, j, f);
+            }else {
+                Land tanah(i, j, inp, false, isgrass);
+                map_land.setLand(i, j, tanah);
+            }
         }
     }
     file.close();
+}
+
+void Game::inputAnimalMap(){
+    ifstream file;
+    file.open("AnimalMap.txt");
+    for (int i = 0; i < rowMap; i++){
+        for (int j = 0; j < colMap; j++){
+            char inp;
+            file >> inp;
+            if (inp == 'C'){
+                map_animal.GetAnimalMatrix()[i][j] = new Chicken();
+            }else if (inp == 'D'){
+                map_animal.GetAnimalMatrix()[i][j] = new Duck();
+            }else if (inp == 'R'){
+                map_animal.GetAnimalMatrix()[i][j] = new Rabbit();
+            }else if (inp == 'G'){
+                map_animal.GetAnimalMatrix()[i][j] = new Goat();
+            }else if (inp == 'P'){
+                player.setposx(i);
+                player.setposy(j);
+            }else if (inp == 'H'){
+                map_animal.GetAnimalMatrix()[i][j] = new Horse();
+            }else if (inp == 'O'){
+                map_animal.GetAnimalMatrix()[i][j] = new Cow(); 
+            }
+        }
+    }
+    file.close();
+}
+
+void Game::inputMap(){
+    inputLand();
+    inputAnimalMap();
 }

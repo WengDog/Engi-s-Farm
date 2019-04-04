@@ -2,7 +2,7 @@
 
 //ctor default
 Goat::Goat() {
-    isHorseAlive = true;
+    isGoatAlive = true;
     timeHungryGoat = 23;
 }
 

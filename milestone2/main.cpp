@@ -12,8 +12,6 @@ int main(){
     // cin >> playerName;
     Game games;
     games.inputMap();
-    // games.printGame();
-    cin.ignore();
     while (1){
         //print current status games
         games.printGame();
@@ -30,7 +28,7 @@ int main(){
         }else if (command == "GROW"){
 
         }else if (command == "MIX"){
-            
+
         }else if (command == "EXIT"){
             // break;
         }else if (command == "MOVE UP"){

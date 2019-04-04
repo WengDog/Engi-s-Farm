@@ -7,6 +7,7 @@
 #include "Renderable.h"
 #include "MatrixOfFacility.h"
 #include "MatrixOfLand.h"
+#include "MatrixOfAnimal.h"
 
 using namespace std;
 
@@ -48,16 +49,16 @@ class Player : public Renderable{
         //method
 
         //method untuk memindahkan posisi pemain
-        void moveUp(MatrixOfLand); //gerak 1 petak ke atas
-        void moveDown(MatrixOfLand); //gerak 1 petak ke bawah
-        void moveLeft(MatrixOfLand); //gerak 1 petak ke kiri
-        void moveRight(MatrixOfLand); //gerak 1 petak ke kanan   
+        void moveUp(MatrixOfLand, MatrixOfFacility); //gerak 1 petak ke atas
+        void moveDown(MatrixOfLand, MatrixOfFacility); //gerak 1 petak ke bawah
+        void moveLeft(MatrixOfLand, MatrixOfFacility); //gerak 1 petak ke kiri
+        void moveRight(MatrixOfLand, MatrixOfFacility); //gerak 1 petak ke kanan   
         
         //implementasi render di kelas player
         char render();
 
         //method untuk berbicara dengan hewan
-        void Talk();
+        void Talk(MatrixOfAnimal);
 
         //method untuk berinteraksi dengan FarmAnimal atau Facility di samping player
         void Interact();
