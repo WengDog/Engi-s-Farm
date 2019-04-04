@@ -21,6 +21,9 @@ class Player : public Renderable{
         //user defined ctor
         Player(string,int,double);
 
+        //operator = 
+        Player& operator=(Player &p);
+
         //setter
         //setter untuk mengubah nama player
         void setname(string);

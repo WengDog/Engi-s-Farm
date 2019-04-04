@@ -2,7 +2,7 @@
 #define _ANIMAL_HPP
 
 #include <iostream>
-#include "Rendarable.h"
+#include "Renderable.h"
 using namespace std;
 
 //Basis kelas abstrak
