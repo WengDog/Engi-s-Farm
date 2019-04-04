@@ -2,9 +2,8 @@
 #define GAME_H
 
 #include "Player.h"
+
 #include "Animal.h"
-#include "Burger.h"
-#include "Carbonara.h"
 #include "Chicken.h"
 #include "Cow.h"
 #include "CowMeat.h"
@@ -13,6 +12,8 @@
 #include "DuckEgg.h"
 #include "DuckMeat.h"
 #include "EggProducer.h"
+#include "Carbonara.h"
+#include "Burger.h"
 #include "FarmProduct.h"
 #include "Goat.h"
 #include "GoatMeat.h"
@@ -27,10 +28,19 @@
 #include "Rabbit.h"
 #include "RabbitMeat.h"
 #include "SideProduct.h"
+#include "MatrixOfFacility.h"
+#include "MatrixOfLand.h"
+#include "Land.h"
+#include "Facility.h"
+#include "Cell.h"
 
 class Game{
     protected:
         Player player;
+        MatrixOfLand map_land;
+        MatrixOfFacility map_facility;
+        int rowMap;
+        int colMap;
 
     public:
         //default constructor
@@ -53,6 +63,20 @@ class Game{
         //print status game
         void printGame();
 
+        //input Game Map
+        void inputMap();
+
+        //method moveup
+        void MOVEUP();
+
+        //method movedown
+        void MOVEDOWN();
+
+        //method meve left
+        void MOVELEFT();
+
+        //method move right
+        void MOVERIGHT();
 };
 
 #endif

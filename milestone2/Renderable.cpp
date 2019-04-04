@@ -17,3 +17,11 @@ int Renderable::getposx(){
 int Renderable::getposy(){
     return posy;
 }
+
+void Renderable::setposx(int x){
+    posx = x;
+}
+
+void Renderable::setposy(int y){
+    posy = y;
+}

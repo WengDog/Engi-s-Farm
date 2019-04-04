@@ -18,13 +18,21 @@ class Renderable{
         int time;
 
     public:
+        //Default Constructor
+        Renderable();
+
         //method untuk mengembalikan karakter yang merepresentasikan objek
         virtual char render() = 0;
 
+        //GETTER
         //method untuk mendapatkan absis object
         int getposx();
         //method untuk mendapatkan ordinat object
         int getposy();
+        
+        //SETTER
+        void setposx(int);
+        void setposy(int);
 };
 
 #endif

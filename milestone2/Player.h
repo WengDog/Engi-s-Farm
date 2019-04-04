@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include "Renderable.h"
+#include "MatrixOfFacility.h"
+#include "MatrixOfLand.h"
 
 using namespace std;
 
@@ -41,11 +43,12 @@ class Player : public Renderable{
         int getwaterContainer();
 
         //method
+
         //method untuk memindahkan posisi pemain
-        void moveUp(); //gerak 1 petak ke atas
-        void moveDown(); //gerak 1 petak ke bawah
-        void moveLeft(); //gerak 1 petak ke kiri
-        void moveRight(); //gerak 1 petak ke kanan   
+        void moveUp(MatrixOfLand); //gerak 1 petak ke atas
+        void moveDown(MatrixOfLand); //gerak 1 petak ke bawah
+        void moveLeft(MatrixOfLand); //gerak 1 petak ke kiri
+        void moveRight(MatrixOfLand); //gerak 1 petak ke kanan   
         
         //implementasi render di kelas player
         char render();
@@ -60,7 +63,7 @@ class Player : public Renderable{
         void Kill();
 
         //method untuk menyiram land dengan wadah air yang dimiliki
-        void Grow();
+        void Grow(MatrixOfLand&);
 
         //method untuk membuat side product yang ada di mixer facility
         void Mix();

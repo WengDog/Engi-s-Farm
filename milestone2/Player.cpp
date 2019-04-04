@@ -40,20 +40,56 @@ int Player::getwaterContainer(){
     return this->waterContainer;
 }
 
-void Player::moveUp(){
-    
+void Player::moveUp(MatrixOfLand L){
+    int next_x= getposx() - 1;
+    int next_y = getposy();
+    if (next_x >= 0 && next_x < L.GetBarMax()){
+        if (next_y >= 0 && next_y < L.GetKolMax()){
+            if (!L.GetLand(next_x, next_y).GetOccupiedStatus()){
+                setposx(next_x);
+                setposy(next_y);
+            }
+        }
+    }
 }
 
-void Player::moveDown(){
-
+void Player::moveDown(MatrixOfLand L){
+    int next_x= getposx() + 1;
+    int next_y = getposy();
+    if (next_x >= 0 && next_x < L.GetBarMax()){
+        if (next_y >= 0 && next_y < L.GetKolMax()){
+            if (!L.GetLand(next_x, next_y).GetOccupiedStatus()){
+                setposx(next_x);
+                setposy(next_y);
+            }
+        }
+    }
 }
 
-void Player::moveLeft(){
-
+void Player::moveLeft(MatrixOfLand L){
+    int next_x= getposx();
+    int next_y = getposy() - 1;
+    if (next_x >= 0 && next_x < L.GetBarMax()){
+        if (next_y >= 0 && next_y < L.GetKolMax()){
+            if (!L.GetLand(next_x, next_y).GetOccupiedStatus()){
+                setposx(next_x);
+                setposy(next_y);
+            }
+        }
+    }
 }
 
-void Player::moveRight(){
-
+void Player::moveRight(MatrixOfLand L){
+    int next_x= getposx();
+    int next_y = getposy() + 1;
+    if (next_x >= 0 && next_x < L.GetBarMax()){
+        if (next_y >= 0 && next_y < L.GetKolMax()){
+            if (!L.GetLand(next_x, next_y).GetOccupiedStatus()){
+                setposx(next_x);
+                setposy(next_y);
+            }
+        }
+    }
 }
 
 char Player::render(){
@@ -72,7 +108,7 @@ void Player::Kill(){
 
 }
 
-void Player::Grow(){
+void Player::Grow(MatrixOfLand& ){
 
 }
 

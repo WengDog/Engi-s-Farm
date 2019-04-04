@@ -11,6 +11,7 @@ public:
     // Getter dan setter dari value
     void setX(int);
     void setY(int);
+    char render();
 };
 
 #endif

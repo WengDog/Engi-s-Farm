@@ -12,13 +12,13 @@ public:
     Land(); // CTOR tanpa parameter
     Land(int _x,int _y,char _LandType, bool _OccStatus, bool _GrassStatus); // CTOR dengan parameter
     // Getter dan setter
-    char GetTypeOfLand(int posX,int posY);
-    void SetTypeOfLand(int posX,int posY,char LandType);
-    bool GetOccupiedStatus(int posX,int posY);
-    void SetOccupiedStatus(int posX,int posY,bool OccStatus);
-    bool GetGrassStatus(int posX,int posY);
-    void SetGrassSatus(int posX,int posY, bool GrStatus);
+    char GetTypeOfLand() const;
+    void SetTypeOfLand(char LandType);
+    bool GetOccupiedStatus() const;
+    void SetOccupiedStatus(bool OccStatus);
+    bool GetGrassStatus() const;
+    void SetGrassSatus(bool GrStatus);
+    char render();
 };
 
 #endif
-
