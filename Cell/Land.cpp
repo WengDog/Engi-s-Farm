@@ -3,7 +3,7 @@
 #include "Land.h"
 
 Land::Land():Cell() {
-    TypeOfLand = 'C';
+    TypeOfLand = 'N'; // Tipenya blm dispesifikkan
     OccupiedStatus = false;
     GrassStatus = false;
 }
