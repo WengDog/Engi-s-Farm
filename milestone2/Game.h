@@ -3,7 +3,7 @@
 
 #include "Player.h"
 
-
+#include <stdlib.h>
 #include <fstream>
 #include <iomanip>
 
@@ -92,6 +92,15 @@ class Game{
 
         //method move right
         void MOVERIGHT();
+
+        //method print inventory player
+        void printInventory();
+
+        //method untuk gerakan random animal
+        void randomMoveAnimal();
+
+        //method untuk cek keadaan animal
+        void AnimalCondition();
 };
 
 #endif

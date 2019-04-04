@@ -4,5 +4,6 @@
 
 // ctor default
 GoldenMeatDespacito::GoldenMeatDespacito() {
-    this->Price = 50000;s
+    this->name = "Golden Meat Despacito";
+    this->Price = 50000;
 }

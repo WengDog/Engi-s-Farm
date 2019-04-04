@@ -8,10 +8,23 @@
 #include "MatrixOfFacility.h"
 #include "MatrixOfLand.h"
 #include "MatrixOfAnimal.h"
+#include "LinkedList.h"
+#include "Duckegg.h"
+#include "CowMeat.h"
+#include "GoatMeat.h"
+#include "RabbitMeat.h"
+#include "Carbonara.h"
+#include "GoldenMeatDespacito.h"
+#include "PieSusu.h"
+#include "Burger.h"
+#include "HorseMilk.h"
+#include "CowMilk.h"
+#include "DuckMeat.h"
+#include "ChickenEgg.h"
 
 using namespace std;
 
-#define SIRAM 5
+#define SIRAM 1
 #define DEFWATER 100
 
 class Player : public Renderable{
@@ -19,6 +32,8 @@ class Player : public Renderable{
         string name;
         int waterContainer;
         double money;
+        LinkedList<Product> Inventory;
+
 
     public:
         //default ctor
@@ -64,7 +79,7 @@ class Player : public Renderable{
         void Interact();
 
         //method untuk menyembelih hewan penghasil daging
-        void Kill();
+        void Kill(MatrixOfAnimal&, MatrixOfLand&);
 
         //method untuk menyiram land dengan wadah air yang dimiliki
         void Grow(MatrixOfLand&);
@@ -72,6 +87,8 @@ class Player : public Renderable{
         //method untuk membuat side product yang ada di mixer facility
         void Mix();
 
+        //method untuk mencetak seluruh isi inventory
+        void Print_Inventory();
 };
 
 #endif

@@ -19,8 +19,7 @@ public:
     int GetBarMax() const;
     int GetKolMax() const;
 
-    //setter
-    void setLand(int,int,Land);
+    void setLand(int,int, Land);
 };
 
 #endif

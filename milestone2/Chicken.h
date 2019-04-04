@@ -10,13 +10,15 @@ class Chicken: virtual public EggProducer{
     //ctor default
     Chicken();
 
+    //implementasi pure virtual
     void printSound();
-    bool isHungry();
+    int getEndurance();
+    int getEndurance_Default();
+    void setEndurance(int);
 
     char render();
     
     private:
-    int timeHungryChicken; //lapar setelah timeLaparAyam
     bool isChickenAlive; //true jika ayam hidup, false jika mati
 };
 

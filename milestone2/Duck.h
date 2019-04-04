@@ -11,12 +11,14 @@ class Duck: virtual public EggProducer, virtual public MeatProducer{
     //ctor default
     Duck();
 
+    //pure virtual
     void printSound();
-    bool isHungry();
-
+    int getEndurance();
+    int getEndurance_Default();
+    void setEndurance(int);
     char render();
+
     private:
-    int timeHungryDuck; //lapar setelah timeLaparBebek
     bool isDuckAlive; //true jika bebek hidup, false jika mati
 };
 

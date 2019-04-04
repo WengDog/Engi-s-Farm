@@ -10,14 +10,15 @@ class Cow: virtual public MeatProducer, virtual public MilkProducer{
     public:
     //ctor deafult
     Cow();
-
+    
+    //Implementasi pure virtual
     void printSound();
-    bool isHungry();
-
     char render();
+    int getEndurance();
+    int getEndurance_Default();
+    void setEndurance(int);
 
     private:
-    int timeHungryCow; //lapar setelah timeLaparSapi
     bool isCowAlive; //true jika sapi hidup, false jika mati
 };
 

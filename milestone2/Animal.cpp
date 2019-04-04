@@ -1,7 +1,12 @@
 #include "Animal.h"
 
 Animal::Animal(){
+    //
+}
 
+Animal::Animal(int x){
+    endurance_default  = x;
+    endurance = x;
 }
 
 void Animal::moveDown(){

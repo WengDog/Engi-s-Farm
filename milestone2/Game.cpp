@@ -4,6 +4,10 @@
 
 using namespace std;
 
+//variabel 
+int dx[] = {-1, 0, 0, 1};
+int dy[] = {0, -1, 1, 0};
+
 Game::Game(){
     //set player in game
     player.setname("player");
@@ -52,11 +56,11 @@ void Game::INTERACT(){
 }
 
 void Game::KILL(){
-
+    player.Kill(map_animal, map_land);
 }
 
 void Game::GROW(){
-
+    player.Grow(map_land);
 }
 
 void Game::MIX(){
@@ -64,7 +68,7 @@ void Game::MIX(){
 }
 
 void Game::TALK(){
-    player.Talk()
+    player.Talk(map_animal);
 }
 
 void Game::MOVEUP(){
@@ -84,6 +88,7 @@ void Game::MOVERIGHT(){
 }
 
 void Game::printGame(){
+    cout << "--------Current Games --------\n";
     for (int i = 0; i < rowMap; i++){
         for (int j = 0; j < colMap; j++){
             if (i == player.getposx() && j == player.getposy())
@@ -103,6 +108,11 @@ void Game::printGame(){
         }
         cout << '\n';
     }
+    cout << "------------------------------\n";
+}
+
+void Game::printInventory(){
+    player.Print_Inventory();
 }
 
 void Game::inputLand(){
@@ -136,19 +146,37 @@ void Game::inputAnimalMap(){
             char inp;
             file >> inp;
             if (inp == 'C'){
+                Land current = map_land.GetLand(i, j);
+                Land newland(i, j, current.GetTypeOfLand(), true, current.GetGrassStatus());
+                map_land.setLand(i, j, newland);
                 map_animal.GetAnimalMatrix()[i][j] = new Chicken();
             }else if (inp == 'D'){
+                Land current = map_land.GetLand(i, j);
+                Land newland(i, j, current.GetTypeOfLand(), true, current.GetGrassStatus());
+                map_land.setLand(i, j, newland);
                 map_animal.GetAnimalMatrix()[i][j] = new Duck();
             }else if (inp == 'R'){
+                Land current = map_land.GetLand(i, j);
+                Land newland(i, j, current.GetTypeOfLand(), true, current.GetGrassStatus());
+                map_land.setLand(i, j, newland);
                 map_animal.GetAnimalMatrix()[i][j] = new Rabbit();
             }else if (inp == 'G'){
+                Land current = map_land.GetLand(i, j);
+                Land newland(i, j, current.GetTypeOfLand(), true, current.GetGrassStatus());
+                map_land.setLand(i, j, newland);
                 map_animal.GetAnimalMatrix()[i][j] = new Goat();
             }else if (inp == 'P'){
                 player.setposx(i);
                 player.setposy(j);
             }else if (inp == 'H'){
+                Land current = map_land.GetLand(i, j);
+                Land newland(i, j, current.GetTypeOfLand(), true, current.GetGrassStatus());
+                map_land.setLand(i, j, newland);
                 map_animal.GetAnimalMatrix()[i][j] = new Horse();
             }else if (inp == 'O'){
+                Land current = map_land.GetLand(i, j);
+                Land newland(i, j, current.GetTypeOfLand(), true, current.GetGrassStatus());
+                map_land.setLand(i, j, newland);
                 map_animal.GetAnimalMatrix()[i][j] = new Cow(); 
             }
         }
@@ -159,4 +187,51 @@ void Game::inputAnimalMap(){
 void Game::inputMap(){
     inputLand();
     inputAnimalMap();
+}
+
+void Game::randomMoveAnimal() {
+    int nx, ny;
+    for(int i = 0; map_animal.GetBarMax(); i++) {
+        for(int j = 0; map_animal.GetKolMax(); j++) {
+            if (map_animal.GetAnimalMatrix()[i][j] != nullptr){
+                nx = map_animal.GetAnimal(i,j).getposx + (rand() % 5);
+                ny = map_animal.GetAnimal(i,j).getposy + (rand() % 5);
+                // if()
+            }
+        }
+    }
+}
+
+void Game::AnimalCondition(){
+    for (int i = 0; i < rowMap; i++){
+        for (int j = 0; j < colMap; j++){
+            if (map_animal.GetAnimalMatrix()[i][j] != nullptr){
+                Land now = map_land.GetLand(i,j);
+                if (map_animal.GetAnimalMatrix()[i][j]->getEndurance() == -5){
+                    //MATI!
+                    map_animal.GetAnimalMatrix()[i][j]=nullptr;
+                    Land newland(i, j, now.GetTypeOfLand(), false, now.GetGrassStatus());
+                    map_land.setLand(i, j, newland);
+                }
+                else if (map_animal.GetAnimalMatrix()[i][j]->getEndurance() <= 0){
+                    //dalam kondisi lapar!
+                    if (now.GetGrassStatus()){
+                        char newtypeland;
+                        if (now.GetTypeOfLand() == '*')
+                            newtypeland = '0';
+                        else if (now.GetTypeOfLand() == '#')
+                            newtypeland = '-';
+                        else newtypeland = 'x';
+                        Land newland(i, j, newtypeland, now.GetOccupiedStatus(), false);
+                        map_land.setLand(i,j,newland);
+                        int def = map_animal.GetAnimalMatrix()[i][j]->getEndurance_Default();
+                        map_animal.GetAnimalMatrix()[i][j]->setEndurance(def);
+                    }else {
+                        int new_endurance = map_animal.GetAnimalMatrix()[i][j]->getEndurance();
+                        map_animal.GetAnimalMatrix()[i][j]->setEndurance(new_endurance-1);
+                    }
+                }
+            }
+        }
+    }
 }

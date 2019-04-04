@@ -1,19 +1,26 @@
 #include "Cow.h"
 
 //ctor default
-Cow::Cow() {
+Cow::Cow():Animal(20) {
     isCowAlive = true;
-    timeHungryCow = 20;
 }
 
 void Cow::printSound() {
     cout << "MOOMOOGHI" << endl;
 }
 
-bool Cow::isHungry() {
-    return(time % timeHungryCow == 0);
-}
-
 char Cow::render() {
     return('O');
+}
+
+int Cow::getEndurance(){
+    return endurance;
+}
+
+int Cow::getEndurance_Default(){
+    return endurance_default;
+}
+
+void Cow::setEndurance(int x){
+    endurance = x;
 }

@@ -10,13 +10,14 @@ class Goat: virtual public MeatProducer{
     //ctor default
     Goat();
 
+    //pure virtual
     void printSound();
-    bool isHungry();
-
+    int getEndurance();
+    int getEndurance_Default();
+    void setEndurance(int);
     char render();
     
     private:
-    int timeHungryGoat; //lapar setelah timeLaparKambing
     bool isGoatAlive; //true jika kambing hidup, false jika mati
 };
 

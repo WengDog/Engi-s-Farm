@@ -15,31 +15,37 @@ int main(){
     while (1){
         //print current status games
         games.printGame();
+        cout << '\n';
+        games.printInventory();
 
         cout << '\n';
 
         //get Command Game
         cout << "Enter command:\n";
         getline(cin, command);
+        cout << '\n';
+
         if (command == "INTERACT") {
 
-        }else if (command == "KILL"){
+        } else if (command == "KILL") {
+            games.KILL();
+        } else if (command == "GROW") {
+            games.GROW();    
+        } else if (command == "MIX") {
 
-        }else if (command == "GROW"){
-
-        }else if (command == "MIX"){
-
-        }else if (command == "EXIT"){
-            // break;
-        }else if (command == "MOVE UP"){
+        } else if (command == "EXIT") {
+            break;
+        } else if (command == "TALK") {
+            games.TALK();
+        } else if (command == "MOVE UP") {
             games.MOVEUP();
-        }else if (command == "MOVE DOWN"){
+        } else if (command == "MOVE DOWN") {
             games.MOVEDOWN();
-        }else if (command == "MOVE RIGHT"){
+        } else if (command == "MOVE RIGHT") {
             games.MOVERIGHT();
-        }else if (command == "MOVE LEFT"){
+        } else if (command == "MOVE LEFT") { 
             games.MOVELEFT();
-        }
+        } 
     }    
     return 0;
 }

@@ -7,6 +7,7 @@ using namespace std;
 class Product {
     // Basis Kelas Abstrak
     protected:
+        string name; // Menyatakan nama produk
         double Price; // Menyatakan harga dari hasil produk
         bool farm_product; // Menandakan Farm product
         bool side_product; // Menandakan Side Product
@@ -16,14 +17,14 @@ class Product {
         Product();
 
         // ctor user defined
-        Product(double Price,bool farm_product,bool side_product);
+        Product(string name, double Price,bool farm_product,bool side_product);
 
         //Setter
-        void SetPrice(double Price);
+        void setPrice(double Price);
 
         //Getter
-        double GetPrice() const;
-
+        double getPrice() const;
+        string getName() const;
 };
 
 #endif // PRODUCT_H_INCLUDED

@@ -4,5 +4,6 @@
 
 // ctor default
 CowMilk::CowMilk() {
+    this->name = "Cow Milk";
     this->Price = 10000;
 }

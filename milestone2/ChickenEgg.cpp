@@ -4,5 +4,6 @@
 
 // ctor default
 ChickenEgg::ChickenEgg() {
+    this->name = "Chicken Egg";
     this->Price = 5000;
 }
