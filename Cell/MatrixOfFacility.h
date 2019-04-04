@@ -10,7 +10,7 @@ protected:
     int KolMax;
 public:
     MatrixOfFacility(); // CTOR tanpa parameter
-    MatrixOfFacility(int n); // CTOR dengan parameter n sebagai jumlah maksimal facility
+    MatrixOfFacility(int x,int y); // CTOR dengan parameter n sebagai jumlah maksimal facility
     MatrixOfFacility(const MatrixOfFacility& L); // CCTOR
     ~MatrixOfFacility(); // DTOR
     MatrixOfFacility operator= (const MatrixOfFacility& L); // Operator assignment
