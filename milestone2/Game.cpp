@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
+
 using namespace std;
 
 Game::Game(){
@@ -94,50 +95,59 @@ void Game::printGame(){
     }
 }
 
-void Game::inputMap(){
+void Game::inputMap(string s){
+    // for (int i = 0; i < rowMap; i++){
+    //     for (int j = 0; j < colMap; j++){
+    //         char c;
+    //         cin >> c;
+    //         if (c == 'W' || c == 'M' || c == 'T'){
+    //             //facility
+    //             Facility now(i, j, c);
+    //             map_facility.setFacility(i, j, now);
+
+    //             //land
+    //             Land tanah(i, j, '.', false, false);
+    //             map_land.setLand(i,j,tanah);
+
+    //         }else if (c == 'P'){
+    //             //player
+    //             player.setposx(i); player.setposy(j);
+
+    //             //facility
+    //             Facility now(i, j, '.');
+    //             map_facility.setFacility(i, j, now);
+
+    //             //land
+    //             Land tanah(i, j, '.', false, false);
+    //             map_land.setLand(i,j,tanah);
+    //         }else if (c == 'C' || c == 'G' || c == 'B'){
+    //             //kategori land
+    //             //C = Coop G = Grassland B = Barn
+    //             Land tanah(i, j, c, false, false);
+    //             map_land.setLand(i,j,tanah);
+
+    //             //facility
+    //             Facility now(i, j, '.');
+    //             map_facility.setFacility(i, j, now);
+    //         }
+    //         else if (c == '*' || c == '@' || c == '#'){
+    //             //land
+    //             Land tanah(i, j, c, false, true);
+    //             map_land.setLand(i,j,tanah);
+
+    //             //facility
+    //             Facility now(i, j, '.');
+    //             map_facility.setFacility(i, j, now);
+    //         }
+    //     }
+    // }
+    ifstream file;
+    file.open(s);
     for (int i = 0; i < rowMap; i++){
-        for (int j = 0; j < colMap; j++){
-            char c;
-            cin >> c;
-            if (c == 'W' || c == 'M' || c == 'T'){
-                //facility
-                Facility now(i, j, c);
-                map_facility.setFacility(i, j, now);
-
-                //land
-                Land tanah(i, j, '.', false, false);
-                map_land.setLand(i,j,tanah);
-
-            }else if (c == 'P'){
-                //player
-                player.setposx(i); player.setposy(j);
-
-                //facility
-                Facility now(i, j, '.');
-                map_facility.setFacility(i, j, now);
-
-                //land
-                Land tanah(i, j, '.', false, false);
-                map_land.setLand(i,j,tanah);
-            }else if (c == 'C' || c == 'G' || c == 'B'){
-                //kategori land
-                //C = Coop G = Grassland B = Barn
-                Land tanah(i, j, c, false, false);
-                map_land.setLand(i,j,tanah);
-
-                //facility
-                Facility now(i, j, '.');
-                map_facility.setFacility(i, j, now);
-            }
-            else if (c == '*' || c == '@' || c == '#'){
-                //land
-                Land tanah(i, j, c, false, true);
-                map_land.setLand(i,j,tanah);
-
-                //facility
-                Facility now(i, j, '.');
-                map_facility.setFacility(i, j, now);
-            }
+        for (int j = 0; j < rowMap; j++){
+            char inp;
+            file >> inp;
         }
     }
+    file.close();
 }

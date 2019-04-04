@@ -3,6 +3,10 @@
 
 #include "Player.h"
 
+
+#include <fstream>
+#include <iomanip>
+
 #include "Animal.h"
 #include "Chicken.h"
 #include "Cow.h"
@@ -64,7 +68,7 @@ class Game{
         void printGame();
 
         //input Game Map
-        void inputMap();
+        void inputMap(string);
 
         //method moveup
         void MOVEUP();

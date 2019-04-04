@@ -2,7 +2,6 @@
 #include <string>
 
 #include "Game.h"
-
 using namespace std;
 
 string playerName;
@@ -13,7 +12,8 @@ int main(){
     // cin >> playerName;
     Game games;
     games.inputMap();
-    games.printGame();
+    // games.printGame();
+    cin.ignore();
     while (1){
         //print current status games
         games.printGame();
@@ -21,7 +21,7 @@ int main(){
         cout << '\n';
 
         //get Command Game
-        cout << "Enter command: ";
+        cout << "Enter command:\n";
         getline(cin, command);
         if (command == "INTERACT") {
 
@@ -30,17 +30,17 @@ int main(){
         }else if (command == "GROW"){
 
         }else if (command == "MIX"){
-
+            
         }else if (command == "EXIT"){
             // break;
         }else if (command == "MOVE UP"){
-
+            games.MOVEUP();
         }else if (command == "MOVE DOWN"){
-
+            games.MOVEDOWN();
         }else if (command == "MOVE RIGHT"){
-
+            games.MOVERIGHT();
         }else if (command == "MOVE LEFT"){
-            
+            games.MOVELEFT();
         }
     }    
     return 0;
