@@ -97,7 +97,7 @@ char Player::render(){
 }
 
 void Player::Talk(){
-
+    
 }
 
 void Player::Interact(){
@@ -108,8 +108,23 @@ void Player::Kill(){
 
 }
 
-void Player::Grow(MatrixOfLand& ){
-
+void Player::Grow(MatrixOfLand& L){
+    int px = getposx();
+    int py = getposy();
+    Land pLand = L.GetLand(px, py);
+    if (!pLand.GetGrassStatus()){
+        if (waterContainer >= SIRAM){
+            waterContainer -= SIRAM;
+            L.GetLand(px, py).SetGrassStatus(true);  
+            if (pLand.GetTypeOfLand() == '0'){
+                L.GetLand(px, py).SetTypeOfLand('*');
+            }else if (pLand.GetTypeOfLand() == '-'){
+                L.GetLand(px, py).SetTypeOfLand('#');
+            }else if (pLand.GetTypeOfLand() == 'x'){
+                L.GetLand(px, py).SetTypeOfLand('@');
+            }
+        }
+    }
 }
 
 void Player::Mix(){

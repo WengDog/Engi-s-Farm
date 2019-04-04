@@ -3,12 +3,12 @@
 #include "MatrixOfLand.h"
 
 MatrixOfLand::MatrixOfLand() {
-    LandMatrix = new Land*[10];
-    for(int i = 0;i<10;i++) {
-        LandMatrix[i] = new Land[10];
+    LandMatrix = new Land*[15];
+    for(int i = 0;i<15;i++) {
+        LandMatrix[i] = new Land[15];
     }
-    BarMax = 10;
-    KolMax = 10;
+    BarMax = 15;
+    KolMax = 15;
 }
 MatrixOfLand::MatrixOfLand(int x, int y) {
     LandMatrix = new Land*[x];

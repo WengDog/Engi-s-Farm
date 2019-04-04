@@ -64,6 +64,9 @@ class Game{
         //method mix
         void MIX();
         
+        //method Talk
+        void TALK();
+
         //print status game
         void printGame();
 

@@ -16,6 +16,9 @@ class Animal : public Renderable{
     virtual void printSound()=0; //print suara hewan jika diajak berinteraksi
     virtual bool isHungry()=0; //true jika lapar, false jika tidak. Implementasi bergantung jenis hewan
 
+    //implementasi render
+    char render();
+    
     protected:
     bool meat, milk, egg;
 };

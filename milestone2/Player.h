@@ -10,6 +10,9 @@
 
 using namespace std;
 
+#define SIRAM 5
+#define DEFWATER 100
+
 class Player : public Renderable{
     private:
         string name;

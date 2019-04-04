@@ -59,6 +59,10 @@ void Game::MIX(){
 
 }
 
+void Game::TALK(){
+    
+}
+
 void Game::MOVEUP(){
     player.moveUp(map_land);
 }
