@@ -10,7 +10,7 @@ MatrixOfFacility::MatrixOfFacility(){
     BarMax = 10;
     KolMax = 10;
 }
-MatrixOfFacility::MatrixOfFacility(int n){
+MatrixOfFacility::MatrixOfFacility(int x,int y){
     FacilityMatrix = new Facility*[x];
     for(int i = 0;i<x;i++) {
         FacilityMatrix[i] = new Facility[y];
