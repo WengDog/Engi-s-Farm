@@ -177,7 +177,7 @@ void Player::Interact(MatrixOfAnimal A, MatrixOfFacility F){
             //valid position!
             if (A.GetAnimalMatrix()[nx][ny] != nullptr){
                 //there is animal in position (nx,ny)
-                
+                char animal = A.GetAnimalMatrix()[nx][ny]->render();
             }else if (F.GetFacility(nx, ny).GetTypeOfFacility() != '.'){
                 //there is facility in position (nx, ny)
                 char facility = F.GetFacility(nx, ny).GetTypeOfFacility();
@@ -265,10 +265,10 @@ void Player::Grow(MatrixOfLand& L){
 
 void Player::Mix(MatrixOfFacility F){
     cout << "---MIX COMMAND---\n";
-    for (int i = 0; i < 4; i++){
-        int nx = getposx() + dx[i];
-        int ny = getposy() + dy[i];
-        if (nx >= 0 && nx < F.GetBarMax() && ny >= 0 && ny < F.GetKolMax()){
+    // for (int i = 0; i < 4; i++){
+    //     int nx = getposx() + dx[i];
+    //     int ny = getposy() + dy[i];
+    //     if (nx >= 0 && nx < F.GetBarMax() && ny >= 0 && ny < F.GetKolMax()){
 }
 
 // Fungsi untuk menampilkan inventori yang dimiliki ke layar
