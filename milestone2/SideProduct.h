@@ -3,9 +3,15 @@
 
 #include "Product.h"
 
+//! Kelas SideProduct
+/*!
+ * Merupakan kelas turunan dari kelas Product yang merepresentasikan produk sampingan.
+ */
 class SideProduct : public Product {
     public:
-        // ctor default dengan mengimplementasikan ctor user defined pada kelas product
+        //! Konstruktor default dari kelas PieSusu
+        /*! Inisialiasi atribut side_product dengan true
+        */
         SideProduct();
 };
 

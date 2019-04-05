@@ -3,10 +3,16 @@
 
 #include "SideProduct.h"
 
-// Produk sampingan hasil dari telur bebek, daging sapi dan susu kuda
+//! Kelas GoldenMeatDespacito
+/*!
+ * Merupakan kelas turunan dari kelas SideProduct yang merepresentasikan objek Golden Meat Despacito.
+ * Produk sampingan hasil dari kelas DuckEgg, CowMeat dan HorseMilk.
+ */
 class GoldenMeatDespacito : public SideProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas GoldenMeatDespacito
+        /*! Inisialiasi nama produk dengan "Golden Meat Despacito" dan harga awal 50000
+        */
         GoldenMeatDespacito();
 };
 

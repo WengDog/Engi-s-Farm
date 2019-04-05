@@ -3,10 +3,16 @@
 
 #include "SideProduct.h"
 
-// Produk sampingan hasil dari daging kambing dan susu kuda
+//! Kelas Carbonara
+/*!
+ * Merupakan kelas turunan dari kelas SideProduct yang merepresentasikan objek carbonara.
+ * Produk sampingan hasil dari kelas GoatMeat dan HorseMilk.
+ */
 class Carbonara : public SideProduct {
     public:
-        // ctor default dengan mengimplementasikan ctor user defined pada kelas product
+        //! Konstruktor default dari kelas Carbonara
+        /*! Inisialiasi nama produk dengan "Carbonara" dan harga awal 25000
+        */
         Carbonara();
 };
 
