@@ -24,3 +24,11 @@ int Duck::getEndurance_Default(){
 void Duck::setEndurance(int x){
     endurance = x;
 }
+
+void Duck::setIsProductable(bool condition){
+    isProductable = condition;
+}
+
+bool Duck::getIsProductable(){
+    return isProductable;
+}

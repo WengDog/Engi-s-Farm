@@ -177,11 +177,7 @@ void Player::Interact(MatrixOfAnimal A, MatrixOfFacility F){
             //valid position!
             if (A.GetAnimalMatrix()[nx][ny] != nullptr){
                 //there is animal in position (nx,ny)
-<<<<<<< HEAD
-                char animal = A.GetAnimalMatrix()[nx][ny]->render();
-=======
-
->>>>>>> 46c69120dd757d0c7404f57fbc61c5296fd20a32
+                
             }else if (F.GetFacility(nx, ny).GetTypeOfFacility() != '.'){
                 //there is facility in position (nx, ny)
                 char facility = F.GetFacility(nx, ny).GetTypeOfFacility();
@@ -268,13 +264,6 @@ void Player::Grow(MatrixOfLand& L){
 }
 
 void Player::Mix(MatrixOfFacility F){
-<<<<<<< HEAD
-    cout << "---MIX COMMAND---\n";
-    // for (int i = 0; i < 4; i++){
-    //     int nx = getposx() + dx[i];
-    //     int ny = getposy() + dy[i];
-    //     if (nx >= 0 && nx < F.GetBarMax() && ny >= 0 && ny < F.GetKolMax()){
-=======
     cout << "--------------- MIX COMMAND ---------------\n";
     for (int i = 0; i < 4; i++){
         int nx = getposx() + dx[i];
@@ -293,7 +282,7 @@ void Player::Mix(MatrixOfFacility F){
                 if(num == 1) {
                     RabbitMeat RM;
                     int bahan1 = Inventory.find(RM);
-                    DuckEgg DE
+                    DuckEgg DE;
                     int bahan2 = Inventory.find(DE);
                     if(bahan1 != -1 && bahan2 != -1) {
                         Inventory.remove(RM);
@@ -302,10 +291,11 @@ void Player::Mix(MatrixOfFacility F){
                         Inventory.add(B);
                     }
                 }
-
+            }
+        }
+    }
     cout << "-------------------------------------------\n";
 
->>>>>>> 46c69120dd757d0c7404f57fbc61c5296fd20a32
 }
 
 // Fungsi untuk menampilkan inventori yang dimiliki ke layar

@@ -24,3 +24,11 @@ int Horse::getEndurance_Default(){
 void Horse::setEndurance(int x){
     endurance = x;
 }
+
+void Horse::setIsProductable(bool condition){
+    isProductable = condition;
+}
+
+bool Horse::getIsProductable(){
+    return isProductable;
+}

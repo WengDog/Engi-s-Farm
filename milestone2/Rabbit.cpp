@@ -24,3 +24,11 @@ int Rabbit::getEndurance_Default(){
 void Rabbit::setEndurance(int x){
     endurance = x;
 }
+
+void Rabbit::setIsProductable(bool condition){
+    isProductable = condition;
+}
+
+bool Rabbit::getIsProductable(){
+    return isProductable;
+}

@@ -15,6 +15,8 @@ class Chicken: virtual public EggProducer{
     int getEndurance();
     int getEndurance_Default();
     void setEndurance(int);
+    bool getIsProductable()=0;
+    void setIsProductable(bool)=0;
 
     char render();
     

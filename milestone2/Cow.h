@@ -17,6 +17,8 @@ class Cow: virtual public MeatProducer, virtual public MilkProducer{
     int getEndurance();
     int getEndurance_Default();
     void setEndurance(int);
+    bool getIsProductable()=0;
+    void setIsProductable(bool)=0;
 
     private:
     bool isCowAlive; //true jika sapi hidup, false jika mati

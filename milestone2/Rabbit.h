@@ -16,6 +16,8 @@ class Rabbit: virtual public MeatProducer{
     int getEndurance_Default();
     void setEndurance(int);
     char render();
+    bool getIsProductable()=0;
+    void setIsProductable(bool)=0;
     
     private:
     bool isRabbitAlive; //true jika kelinci hidup, false jika mati
