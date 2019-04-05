@@ -3,7 +3,7 @@
 using namespace std;
 
 
-//variabel 
+//variabel
 int dx[] = {-1, 0, 0, 1};
 int dy[] = {0, -1, 1, 0};
 
@@ -88,7 +88,7 @@ void Player::moveLeft(MatrixOfLand L, MatrixOfFacility F){
     // Inisialisasi koordinat yang dituju
     int next_x= getposx();
     int next_y = getposy() - 1;
-    
+
     // Pengecekan apakah cell sudah terisi atau belum
     // jika belum maka player akan pindah ke koordinat baru
     if (next_x >= 0 && next_x < L.GetBarMax()){
@@ -107,7 +107,7 @@ void Player::moveRight(MatrixOfLand L, MatrixOfFacility F){
     // Inisialisasi koordinat yang dituju
     int next_x = getposx();
     int next_y = getposy() + 1;
-    
+
     // Pengecekan apakah cell sudah terisi atau belum
     // jika belum maka player akan pindah ke koordinat baru
     if (next_x >= 0 && next_x < L.GetBarMax()){
@@ -177,7 +177,7 @@ void Player::Interact(MatrixOfAnimal A, MatrixOfFacility F){
             //valid position!
             if (A.GetAnimalMatrix()[nx][ny] != nullptr){
                 //there is animal in position (nx,ny)
-                
+
             }else if (F.GetFacility(nx, ny).GetTypeOfFacility() != '.'){
                 //there is facility in position (nx, ny)
                 char facility = F.GetFacility(nx, ny).GetTypeOfFacility();
@@ -185,7 +185,7 @@ void Player::Interact(MatrixOfAnimal A, MatrixOfFacility F){
                     FillWaterContainer();
                 }else if (facility == 'T'){
                     SellAllProduct();
-                }          
+                }
             }
         }
     }
@@ -220,7 +220,7 @@ void Player::Kill(MatrixOfAnimal& A, MatrixOfLand& L){
                             CowMeat OM;
                             Inventory.add(OM);
                         }
-                        
+
                         // Mengeset OccupiedStatus menjadi false
                         Land newland(nx, ny, L.GetLand(nx,ny).GetTypeOfLand(), false, L.GetLand(nx,ny).GetGrassStatus());
                         L.setLand(nx, ny, newland);
@@ -247,7 +247,7 @@ void Player::Grow(MatrixOfLand& L){
     // jika belum akan mengubah tipe land dan mengubah status land
     if (!pLand.GetGrassStatus()){
         if (waterContainer >= SIRAM){
-            waterContainer -= SIRAM;  
+            waterContainer -= SIRAM;
             if (pLand.GetTypeOfLand() == '0'){
                 Land newland(px, py, '*', pLand.GetOccupiedStatus(), true);
                 L.setLand(px, py, newland);
@@ -264,11 +264,36 @@ void Player::Grow(MatrixOfLand& L){
 }
 
 void Player::Mix(MatrixOfFacility F){
-    cout << "---MIX COMMAND---\n";
+    cout << "--------------- MIX COMMAND ---------------\n";
     for (int i = 0; i < 4; i++){
         int nx = getposx() + dx[i];
         int ny = getposy() + dy[i];
         if (nx >= 0 && nx < F.GetBarMax() && ny >= 0 && ny < F.GetKolMax()){
+            if (F.GetFacility(nx, ny).GetTypeOfFacility() == 'M') {
+                int num;
+                cout << "List Of Side Product\n";
+                cout << "1. Burger\n";
+                cout << "2. Carbonara\n";
+                cout << "3. Pie Susu\n";
+                cout << "4. Golden Meat Despacito\n";
+                cout << "Choose Number of Side Product Do You Want :\n";
+                cin >> num;
+
+                if(num == 1) {
+                    RabbitMeat RM;
+                    int bahan1 = Inventory.find(RM);
+                    DuckEgg DE
+                    int bahan2 = Inventory.find(DE);
+                    if(bahan1 != -1 && bahan2 != -1) {
+                        Inventory.remove(RM);
+                        Inventory.remove(DE);
+                        Burger B;
+                        Inventory.add(B);
+                    }
+                }
+
+    cout << "-------------------------------------------\n";
+
 }
 
 // Fungsi untuk menampilkan inventori yang dimiliki ke layar
