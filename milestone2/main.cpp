@@ -36,10 +36,10 @@ int main(){
             games.KILL();
         } else if (command == "GROW") {
             sec++;
-            games.GROW();    
+            games.GROW();
         } else if (command == "MIX") {
             sec++;
-
+            games.MIX();
         } else if (command == "EXIT") {
             break;
         } else if (command == "TALK") {
@@ -54,7 +54,7 @@ int main(){
         } else if (command == "MOVE RIGHT") {
             sec++;
             games.MOVERIGHT();
-        } else if (command == "MOVE LEFT") { 
+        } else if (command == "MOVE LEFT") {
             sec++;
             games.MOVELEFT();
         } else if (command == "HELP") {
@@ -63,8 +63,8 @@ int main(){
 
         if (sec % 5 == 0)
             games.randomMoveAnimal();
-        
+
         games.AnimalCondition();
-    }    
+    }
     return 0;
 }

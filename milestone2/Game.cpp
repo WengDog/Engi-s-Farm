@@ -5,7 +5,7 @@
 using namespace std;
 
 
-//variabel 
+//variabel
 int drx[] = {-1, 0, 0, 1};
 int dry[] = {0, -1, 1, 0};
 
@@ -14,7 +14,7 @@ Game::Game(){
     player.setname("player");
     player.setmoney(100);
     player.setwaterContainer(10);
-    
+
     //set map size
     rowMap = 15;
     colMap = 15;
@@ -38,7 +38,7 @@ Game::Game(string playername){
     player.setmoney(100);
     player.setwaterContainer(10);
 
-    
+
     //set map size
     rowMap = 15;
     colMap = 15;
@@ -65,7 +65,7 @@ void Game::GROW(){
 }
 
 void Game::MIX(){
-
+    player.Mix(map_facility);
 }
 
 void Game::TALK(){
@@ -99,7 +99,7 @@ void Game::printGame(){
                     cout << map_animal.GetAnimalMatrix()[i][j]->render();
                 }else {
                     if (map_facility.GetFacility(i, j).GetTypeOfFacility() != '.'){
-                        cout << map_facility.GetFacility(i,j).GetTypeOfFacility();                        
+                        cout << map_facility.GetFacility(i,j).GetTypeOfFacility();
                     }else {
                         cout << map_land.GetLand(i,j).GetTypeOfLand();
                     }
@@ -124,7 +124,7 @@ void Game::inputLand(){
             char inp;
             bool isgrass = false;
             file >> inp;
-            if (inp == '*' || inp == '#' 
+            if (inp == '*' || inp == '#'
             || inp == '@') isgrass = true;
 
             if (inp == 'T' || inp == 'W' || inp == 'M') {
@@ -178,7 +178,7 @@ void Game::inputAnimalMap(){
                 Land current = map_land.GetLand(i, j);
                 Land newland(i, j, current.GetTypeOfLand(), true, current.GetGrassStatus());
                 map_land.setLand(i, j, newland);
-                map_animal.GetAnimalMatrix()[i][j] = new Cow(); 
+                map_animal.GetAnimalMatrix()[i][j] = new Cow();
             }
         }
     }
