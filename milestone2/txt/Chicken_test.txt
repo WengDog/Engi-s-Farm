@@ -1,0 +1,10 @@
+Suite: Chicken_test_suite
+  Test: Chicken_test ...passed
+
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      1      1      1      0        0
+             asserts      4      4      4      0      n/a
+
+Elapsed time =    0.000 seconds
+

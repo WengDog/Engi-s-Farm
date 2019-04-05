@@ -3,10 +3,16 @@
 
 #include "FarmProduct.h"
 
-// Produk hasil dari bebek
+//! Kelas DuckEgg
+/*!
+ * Merupakan kelas turunan dari kelas FarmProduct yang merepresentasikan produk telur bebek.
+ * Produk hasil kelas Duck.
+ */
 class DuckEgg : public FarmProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas DuckEgg
+        /*! Inisialiasi nama produk dengan "Duck Egg" dan harga awal 6000
+        */
         DuckEgg();
 };
 

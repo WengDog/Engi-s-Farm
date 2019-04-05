@@ -3,10 +3,16 @@
 
 #include "FarmProduct.h"
 
-// Produk hasil dari kelinci
+//! Kelas RabbitMeat
+/*!
+ * Merupakan kelas turunan dari kelas FarmProduct yang merepresentasikan produk daging kelinci.
+ * Produk hasil kelas Rabbit.
+ */
 class RabbitMeat : public FarmProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas RabbitMeat
+        /*! Inisialiasi nama produk dengan "Rabbit Meat" dan harga awal 8000
+        */
         RabbitMeat();
 };
 

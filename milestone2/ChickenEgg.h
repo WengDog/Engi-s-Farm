@@ -3,10 +3,16 @@
 
 #include "FarmProduct.h"
 
-// Produk hasil dari ayam
+//! Kelas ChickenEgg
+/*!
+ * Merupakan kelas turunan dari kelas FarmProduct yang merepresentasikan produk telur ayam.
+ * Produk hasil kelas Chicken.
+ */
 class ChickenEgg : public FarmProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas ChickenEgg
+        /*! Inisialiasi nama produk dengan "Chicken Egg" dan harga awal 5000
+        */
         ChickenEgg();
 };
 

@@ -3,10 +3,16 @@
 
 #include "FarmProduct.h"
 
-// Produk hasil dari sapi
+//! Kelas CowMeat
+/*!
+ * Merupakan kelas turunan dari kelas FarmProduct yang merepresentasikan produk daging sapi.
+ * Produk hasil kelas Cow.
+ */
 class CowMeat : public FarmProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas CowMeat
+        /*! Inisialiasi nama produk dengan "Cow Meat" dan harga awal 10000
+        */
         CowMeat();
 };
 
