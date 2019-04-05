@@ -3,10 +3,16 @@
 
 #include "SideProduct.h"
 
-// Produk sampingan hasil dari daging kelinci dan telur bebek
+//! Kelas Burger
+/*!
+ * Merupakan kelas turunan dari kelas SideProduct yang merepresentasikan objek burger.
+ * Produk sampingan hasil dari kelas RabbitMeat dan DuckEgg.
+ */
 class Burger : public SideProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas Burger
+        /*! Inisialiasi nama produk dengan "Burger" dan harga awal 20000
+        */
         Burger();
 };
 

@@ -2,11 +2,16 @@
 #define PIESUSU_H_INCLUDED
 
 #include "SideProduct.h"
-
-// Produk sampingan hasil dari telur ayam dan susu sapi
+//! Kelas PieSusu
+/*!
+ * Merupakan kelas turunan dari kelas SideProduct yang merepresentasikan objek pie susu.
+ * Produk sampingan hasil dari kelas ChickenEgg dan CowMilk.
+ */
 class PieSusu : public SideProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas PieSusu
+        /*! Inisialiasi nama produk dengan "Pie Susu" dan harga awal 20000
+        */
         PieSusu();
 };
 
