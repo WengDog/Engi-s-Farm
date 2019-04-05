@@ -104,6 +104,9 @@ class Game{
 
         //method untuk menampilkan keterangan pada layar
         void printHelp();
+
+        //method untuk menampilkan status atribut player
+        void printAtribute();
 };
 
 #endif

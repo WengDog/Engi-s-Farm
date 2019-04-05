@@ -32,12 +32,14 @@ class Animal : public Renderable{
 
     //implementasi render
     char render();
-
+    void setIsProductable(bool);
+    bool getIsProductable();
 
     protected:
     int endurance;
     int endurance_default;
     bool meat, milk, egg;
+    bool isProductable;
 };
 
 #endif

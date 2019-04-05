@@ -24,3 +24,4 @@ int Duck::getEndurance_Default(){
 void Duck::setEndurance(int x){
     endurance = x;
 }
+
