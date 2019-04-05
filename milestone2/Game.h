@@ -3,6 +3,10 @@
 
 #include "Player.h"
 
+#include <cstdlib>
+#include <fstream>
+#include <iomanip>
+
 #include "Animal.h"
 #include "Chicken.h"
 #include "Cow.h"
@@ -33,12 +37,14 @@
 #include "Land.h"
 #include "Facility.h"
 #include "Cell.h"
+#include "MatrixOfAnimal.h"
 
 class Game{
     protected:
         Player player;
         MatrixOfLand map_land;
         MatrixOfFacility map_facility;
+        MatrixOfAnimal map_animal;
         int rowMap;
         int colMap;
 
@@ -60,8 +66,17 @@ class Game{
         //method mix
         void MIX();
         
+        //method Talk
+        void TALK();
+
         //print status game
         void printGame();
+
+        //input Game Land
+        void inputLand();
+
+        //input Animal Map
+        void inputAnimalMap();
 
         //input Game Map
         void inputMap();
@@ -77,6 +92,18 @@ class Game{
 
         //method move right
         void MOVERIGHT();
+
+        //method print inventory player
+        void printInventory();
+
+        //method untuk gerakan random animal
+        void randomMoveAnimal();
+
+        //method untuk cek keadaan animal
+        void AnimalCondition();
+
+        //method untuk menampilkan keterangan pada layar
+        void printHelp();
 };
 
 #endif

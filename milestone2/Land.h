@@ -17,7 +17,7 @@ public:
     bool GetOccupiedStatus() const;
     void SetOccupiedStatus(bool OccStatus);
     bool GetGrassStatus() const;
-    void SetGrassSatus(bool GrStatus);
+    void SetGrassStatus(bool GrStatus);
     char render();
 };
 

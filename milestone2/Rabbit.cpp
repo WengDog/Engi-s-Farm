@@ -1,19 +1,26 @@
 #include "Rabbit.h"
 
 //ctor default
-Rabbit::Rabbit() {
+Rabbit::Rabbit() :Animal(12){
     isRabbitAlive = true;
-    timeHungryRabbit = 12;
 }
 
 void Rabbit::printSound() {
     cout << "CIRICITCIT" << endl;
 }
 
-bool Rabbit::isHungry() {
-    return(time % timeHungryRabbit == 0);
-}
-
 char Rabbit::render() {
     return('R');
+}
+
+int Rabbit::getEndurance(){
+    return endurance;
+}
+
+int Rabbit::getEndurance_Default(){
+    return endurance_default;
+}
+
+void Rabbit::setEndurance(int x){
+    endurance = x;
 }

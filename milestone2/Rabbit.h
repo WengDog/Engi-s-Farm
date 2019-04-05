@@ -10,13 +10,14 @@ class Rabbit: virtual public MeatProducer{
     //ctor default
     Rabbit();
 
+    //implementasi pure virtual
     void printSound();
-    bool isHungry();
-
+    int getEndurance();
+    int getEndurance_Default();
+    void setEndurance(int);
     char render();
     
     private:
-    int timeHungryRabbit; //lapar setelah timeLaparKelinci
     bool isRabbitAlive; //true jika kelinci hidup, false jika mati
 };
 

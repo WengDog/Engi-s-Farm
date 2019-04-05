@@ -1,19 +1,26 @@
 #include "Chicken.h"
 
 //ctor default
-Chicken::Chicken() {
+Chicken::Chicken() : Animal(10) {
     isChickenAlive = true;
-    timeHungryChicken = 10;
 }
 
 void Chicken::printSound() {
     cout << "BAROKOKOK" << endl;
 }
 
-bool Chicken::isHungry() {
-    return(time % timeHungryChicken == 0);
-}
-
 char Chicken::render() {
     return('C');
+}
+
+void Chicken::setEndurance(int x){
+    endurance = x;
+}
+
+int Chicken::getEndurance(){
+    return endurance;
+}
+
+int Chicken::getEndurance_Default(){
+    return endurance_default;
 }

@@ -1,19 +1,26 @@
 #include "Horse.h"
 
 //ctor default
-Horse::Horse() {
+Horse::Horse() :Animal(15){
     isHorseAlive = true;
-    timeHungryHorse = 15;
 }
 
 void Horse::printSound() {
     cout << "HIIIHAAAAA" << endl;
 }
 
-bool Horse::isHungry() {
-    return(time % timeHungryHorse == 0);
-}
-
 char Horse::render() {
     return('H');
+}
+
+int Horse::getEndurance(){
+    return endurance;
+}
+
+int Horse::getEndurance_Default(){
+    return endurance_default;
+}
+
+void Horse::setEndurance(int x){
+    endurance = x;
 }

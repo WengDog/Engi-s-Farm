@@ -1,7 +1,7 @@
-#include "EggProducer.hpp"
+#include "EggProducer.h"
 
 using namespace std;
 
 EggProducer::EggProducer(){
-    this->telur = true;
+    this->egg = true;
 }

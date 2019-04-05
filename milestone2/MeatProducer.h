@@ -8,7 +8,7 @@ using namespace std;
 class MeatProducer: virtual public Animal{
     public:
     MeatProducer();
-    
+
     protected:
     int meat; 
 };

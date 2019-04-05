@@ -4,5 +4,6 @@
 
 // ctor default dengan mengimplementasikan ctor user defined pada kelas product
 Carbonara::Carbonara() {
+    this->name = "Carbonara";
     this->Price = 25000;
 }

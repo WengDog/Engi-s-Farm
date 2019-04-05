@@ -3,7 +3,7 @@
 #include "Land.h"
 
 Land::Land():Cell() {
-    TypeOfLand = 'C';
+    TypeOfLand = '.';
     OccupiedStatus = false;
     GrassStatus = false;
 }
@@ -27,7 +27,7 @@ void Land::SetOccupiedStatus(bool OccStatus) {
 bool Land::GetGrassStatus() const{
     return(GrassStatus);
 }
-void Land::SetGrassSatus(bool GrStatus) {
+void Land::SetGrassStatus(bool GrStatus) {
     GrassStatus = GrStatus;
 }
 

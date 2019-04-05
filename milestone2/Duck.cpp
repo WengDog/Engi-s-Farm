@@ -1,19 +1,26 @@
 #include "Duck.h"
 
 //ctor default
-Duck::Duck() {
-    isHorseAlive = true;
-    timeHungryDuck = 17;
+Duck::Duck():Animal(17){
+    isDuckAlive = true;
 }
 
 void Duck::printSound() {
     cout << "KWEK KWEK" << endl;
 }
 
-bool Duck::isHungry() {
-    return(time % timeHungryDuck == 0);
-}
-
 char Duck::render() {
     return('D');
+}
+
+int Duck::getEndurance(){
+    return endurance;
+}
+
+int Duck::getEndurance_Default(){
+    return endurance_default;
+}
+
+void Duck::setEndurance(int x){
+    endurance = x;
 }

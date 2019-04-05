@@ -10,12 +10,14 @@ class Horse: virtual public MilkProducer{
     //ctor default
     Horse();
 
+    //implementasi pure virtual
     void printSound();
-    bool isHungry();
-
+    int getEndurance();
+    int getEndurance_Default();
+    void setEndurance(int);
     char render();
+
     private:
-    int timeHungryHorse; //lapar setelah timeLaparKuda
     bool isHorseAlive; //true jika kuda hidup, false jika mati
 };
 

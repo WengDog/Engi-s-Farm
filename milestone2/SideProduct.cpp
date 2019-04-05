@@ -3,4 +3,4 @@
 #include "SideProduct.h"
 
 // ctor default dengan mengimplementasikan ctor user defined pada kelas product
-SideProduct::SideProduct() : Product(0,false,true){}
+SideProduct::SideProduct() : Product("\0",0,false,true){}

@@ -4,5 +4,6 @@
 
 // ctor default
 DuckMeat::DuckMeat() {
+    this->name = "Duck Meat";
     this->Price = 7000;
 }

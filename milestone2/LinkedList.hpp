@@ -16,40 +16,89 @@ class LinkedList{
 
     public:
         //default ctor
-        LinkedList();
+        LinkedList(){
+            //kosong
+        }
+        
         //default cctor
-        LinkedList(const LinkedList&);
+        LinkedList(const LinkedList& copy){
+            for (int i = 0; i < copy.isi.size(); i++)
+                isi.push_back(copy.isi[i]);
+        }
+        
         //dtor
-        ~LinkedList();
+        ~LinkedList(){
+            isi.clear();
+        }
 
         //operator=
-        LinkedList& operator=(const LinkedList&);
+        LinkedList& operator=(const LinkedList& copy){
+            isi.clear();
+            for (int i = 0; i < copy.isi.size(); i++)
+                add(copy.isi[i]);
+            return *this;
+        }
 
         //service
         //mengembalikan indeks dimana element ditemukan
         //jika tidak ditemukan akan mengembalikan -1
-        int find(Type element);
+        int find(Type element){
+            for (int i = 0; i < isi.size(); i++){
+                if (isi[i] == element)
+                    return i;
+            }
+            return -1;
+        }
 
         //mengembalikan true jika linked list kosong
-        bool isEmpty();
+        bool isEmpty(){
+            return (isi.size() == 0);
+        }
 
         //menambahkan elemen sebagai elemen paling akhir
-        void add(Type element);
+        void add(Type element){
+            isi.push_back(element);
+        }
 
         //membuang elemen dari linkedlist
-        void remove(Type element);
+        void remove(Type element){
+            int pos = find(element);
+            if (pos != -1){
+                int find;
+                isi.erase(isi.begin() + pos);
+            }
+        }
 
         //mengembalikan elemen pada indeks
         //prekondisi : indeks < ukuran isi
-        Type get(int indeks);
+        Type get(int indeks){
+            return isi[indeks];
+        }
 
         //mengembalikan ukuran dari linkedlist
-        int size();
+        int size(){
+            return isi.size();
+        }
 
         //mencetak isi linkedlist
         //misal isi linkedlist adalah l1, l2, ... ln maka akan tercetak [l1, l2, l3, ..., ln]
         //jika kosong akan menuliskan []
-        void print();
+        void print(){
+            if (isi.size() == 0){
+                cout << "[]\n";
+            }else {
+                cout << "[";
+                for (int i = 0; i < isi.size(); i++){
+                    isi[i].print();
+                    cout << (i == isi.size() - 1 ? "]\n" : ", ");
+                }
+            }
+        }
+
+        //mengosongkan isi linkedlist
+        void clear(){
+            isi.clear();
+        }
 };
 
 #endif

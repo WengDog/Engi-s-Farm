@@ -2,46 +2,69 @@
 #include <string>
 
 #include "Game.h"
-
 using namespace std;
 
 string playerName;
 string command;
+int sec;
 
 int main(){
     // cout << "Masukan nama player\n";
     // cin >> playerName;
     Game games;
     games.inputMap();
-    games.printGame();
     while (1){
         //print current status games
+        // system("cls");
         games.printGame();
+        cout << '\n';
+        games.printInventory();
 
         cout << '\n';
 
         //get Command Game
-        cout << "Enter command: ";
+        cout << "Input \"HELP\" for see the commands\n";
+        cout << "Enter command:\n";
         getline(cin, command);
+        cout << '\n';
+
         if (command == "INTERACT") {
+            sec++;
+            games.INTERACT();
+        } else if (command == "KILL") {
+            sec++;
+            games.KILL();
+        } else if (command == "GROW") {
+            sec++;
+            games.GROW();    
+        } else if (command == "MIX") {
+            sec++;
 
-        }else if (command == "KILL"){
-
-        }else if (command == "GROW"){
-
-        }else if (command == "MIX"){
-
-        }else if (command == "EXIT"){
-            // break;
-        }else if (command == "MOVE UP"){
-
-        }else if (command == "MOVE DOWN"){
-
-        }else if (command == "MOVE RIGHT"){
-
-        }else if (command == "MOVE LEFT"){
-            
+        } else if (command == "EXIT") {
+            break;
+        } else if (command == "TALK") {
+            sec++;
+            games.TALK();
+        } else if (command == "MOVE UP") {
+            sec++;
+            games.MOVEUP();
+        } else if (command == "MOVE DOWN") {
+            sec++;
+            games.MOVEDOWN();
+        } else if (command == "MOVE RIGHT") {
+            sec++;
+            games.MOVERIGHT();
+        } else if (command == "MOVE LEFT") { 
+            sec++;
+            games.MOVELEFT();
+        } else if (command == "HELP") {
+            games.printHelp();
         }
+
+        if (sec % 5 == 0)
+            games.randomMoveAnimal();
+        
+        games.AnimalCondition();
     }    
     return 0;
 }
