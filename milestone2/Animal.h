@@ -5,12 +5,20 @@
 #include "Renderable.h"
 #define DEFAULT_ENDURANCE 5
 
-//Basis kelas abstrak
+/**
+ * Kelas Animal, merupakan abstract base class.
+ * Digunakan untuk mengidentifikasi objek hewan-hewan.
+ */
 class Animal : public Renderable{
     public:
-    //CTOR Default
+    /**
+     * Konstruktor default Animal.
+     */
     Animal();
-    //CTOR User Defined
+    /**
+     * Konstruktor berparameter Animal yang menerima sebuah integer
+     * untuk menentukan waktu kelaparan tiap hewan.
+     */
     Animal(int);
 
     //pure virtual
