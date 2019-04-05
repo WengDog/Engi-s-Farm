@@ -293,3 +293,7 @@ void Game::printHelp() {
     cout << "\"O\" = Cow\n";
     cout << "-------------------------------\n";
 }
+
+void Game::printAtribute(){
+    player.Print_Atribute();
+}

@@ -24,11 +24,3 @@ int Cow::getEndurance_Default(){
 void Cow::setEndurance(int x){
     endurance = x;
 }
-
-bool Cow::getIsProductable(){
-    return isProductable;
-}
-
-void Cow::setIsProductable(bool condition){
-    isProductable = condition;
-}

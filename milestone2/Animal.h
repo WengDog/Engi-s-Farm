@@ -18,12 +18,11 @@ class Animal : public Renderable{
     virtual int getEndurance()=0;
     virtual int getEndurance_Default()=0;
     virtual void setEndurance(int)=0;
-    virtual bool getIsProductable()=0;
-    virtual void setIsProductable(bool)=0;
 
     //implementasi render
     char render();
-
+    void setIsProductable(bool);
+    bool getIsProductable();
 
     protected:
     int endurance;

@@ -16,8 +16,6 @@ class Horse: virtual public MilkProducer{
     int getEndurance_Default();
     void setEndurance(int);
     char render();
-    bool getIsProductable()=0;
-    void setIsProductable(bool)=0;
 
     private:
     bool isHorseAlive; //true jika kuda hidup, false jika mati

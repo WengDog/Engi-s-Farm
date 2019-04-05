@@ -43,8 +43,9 @@ class LinkedList{
         //mengembalikan indeks dimana element ditemukan
         //jika tidak ditemukan akan mengembalikan -1
         int find(Type element){
-            for (int i = 0; i < isi.size(); i++){
-                if (isi[i] == element)
+            int isi_size = isi.size();
+            for (int i = 0; i < isi_size; i++){
+                if (get(i).getName() == element.getName())
                     return i;
             }
             return -1;

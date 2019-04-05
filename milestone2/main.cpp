@@ -15,11 +15,16 @@ int main(){
     games.inputMap();
     while (1){
         //print current status games
-        // system("cls");
+        
         games.printGame();
         cout << '\n';
-        games.printInventory();
 
+        //print current status player
+        games.printAtribute();
+        cout << '\n';
+        
+        //print inventory player
+        games.printInventory();
         cout << '\n';
 
         //get Command Game

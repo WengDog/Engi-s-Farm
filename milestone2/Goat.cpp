@@ -24,11 +24,3 @@ int Goat::getEndurance_Default(){
 void Goat::setEndurance(int x){
     endurance = x;
 }
-
-void Goat::setIsProductable(bool condition){
-    isProductable = condition;
-}
-
-bool Goat::getIsProductable(){
-    return isProductable;
-}

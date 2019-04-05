@@ -100,7 +100,8 @@ class Player : public Renderable{
         //method untuk mencetak seluruh isi inventory
         void Print_Inventory();
 
-
+        //method untuk mencetak atribut player
+        void Print_Atribute();
 };
 
 #endif

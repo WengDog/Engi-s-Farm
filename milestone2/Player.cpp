@@ -177,7 +177,37 @@ void Player::Interact(MatrixOfAnimal A, MatrixOfFacility F){
             //valid position!
             if (A.GetAnimalMatrix()[nx][ny] != nullptr){
                 //there is animal in position (nx,ny)
-
+                char animal = A.GetAnimalMatrix()[nx][ny] ->render();
+                bool canProduce = A.GetAnimalMatrix()[nx][ny]->getIsProductable();
+                if (animal == 'H'){
+                    //Milk Producer
+                    if (canProduce){
+                        A.GetAnimalMatrix()[nx][ny]->setIsProductable(false);
+                        HorseMilk HM;
+                        Inventory.add(HM);
+                    }
+                }else if (animal == 'O'){
+                    //Milk Producer
+                    if (canProduce){
+                        A.GetAnimalMatrix()[nx][ny]->setIsProductable(false);
+                        CowMilk CM;
+                        Inventory.add(CM);
+                    }
+                }else if (animal == 'C'){
+                    //Egg Producer
+                    if (canProduce){
+                        A.GetAnimalMatrix()[nx][ny]->setIsProductable(false);
+                        ChickenEgg CE;
+                        Inventory.add(CE);
+                    }
+                }else if (animal == 'D'){
+                    //Egg Producer
+                    if (canProduce){
+                        A.GetAnimalMatrix()[nx][ny]->setIsProductable(false);
+                        DuckEgg DE;
+                        Inventory.add(DE);
+                    }
+                }
             }else if (F.GetFacility(nx, ny).GetTypeOfFacility() != '.'){
                 //there is facility in position (nx, ny)
                 char facility = F.GetFacility(nx, ny).GetTypeOfFacility();
@@ -204,7 +234,8 @@ void Player::Kill(MatrixOfAnimal& A, MatrixOfLand& L){
             ny >= 0 && ny < A.GetKolMax()){
                 if (A.GetAnimalMatrix()[nx][ny] != nullptr){
                     char jenis = A.GetAnimalMatrix()[nx][ny] -> render();
-                    // Jika merupakan salah satu hewan penghasil daging,
+                    char canproduce = A.GetAnimalMatrix()[nx][ny]->getIsProductable();
+                    // Jika merupakan salah satu hewan penghasil daging, dan sudah makan
                     // maka akan menambahkan ke inventori
                     if (jenis == 'D' || jenis == 'G' || jenis == 'R' || jenis == 'O'){
                         if (jenis == 'D'){
@@ -291,6 +322,8 @@ void Player::Mix(MatrixOfFacility F){
                         Inventory.remove(DE);
                         Burger B;
                         Inventory.add(B);
+                    } else {
+                        cout << "Insufficient Ingredients !\n";
                     }
                 } else if(num == 2) {
                     GoatMeat GM;
@@ -302,6 +335,8 @@ void Player::Mix(MatrixOfFacility F){
                         Inventory.remove(Hm);
                         Carbonara C;
                         Inventory.add(C);
+                    } else {
+                        cout << "Insufficient Ingredients !\n";
                     }
                 } else if(num == 3) {
                     CowMilk Cm;
@@ -313,6 +348,8 @@ void Player::Mix(MatrixOfFacility F){
                         Inventory.remove(CE);
                         PieSusu PS;
                         Inventory.add(PS);
+                    } else {
+                        cout << "Insufficient Ingredients !\n";
                     }
                 } else if(num == 4) {
                     CowMeat CM;
@@ -327,6 +364,8 @@ void Player::Mix(MatrixOfFacility F){
                         Inventory.remove(DE);
                         GoldenMeatDespacito GMD;
                         Inventory.add(GMD);
+                    } else {
+                        cout << "Insufficient Ingredients !\n";
                     }
                 } else {
                     cout << "Side Product Doesn't Exist\n";
@@ -346,5 +385,13 @@ void Player::Print_Inventory(){
         Product produk = Inventory.get(i);
         cout << produk.getName() << '\n';
     }
+    cout << "--------------------\n";
+}
+
+void Player::Print_Atribute(){
+    cout << "---Player Atribute---\n";
+    cout << "Player Name: " << getname() << '\n';
+    cout << "Player Money: " << getmoney() << '\n';
+    cout << "Player Water Container: " << getwaterContainer() << '\n';
     cout << "--------------------\n";
 }

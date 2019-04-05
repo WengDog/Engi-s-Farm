@@ -24,11 +24,3 @@ int Chicken::getEndurance(){
 int Chicken::getEndurance_Default(){
     return endurance_default;
 }
-
-void Chicken::setIsProductable(bool condition){
-    isProductable = condition;
-}
-
-bool Chicken::getIsProductable(){
-    return isProductable;
-}
