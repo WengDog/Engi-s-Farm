@@ -21,8 +21,11 @@ class Animal : public Renderable{
      */
     Animal(int);
 
-    //pure virtual
-    virtual void printSound()=0; //print suara hewan jika diajak berinteraksi
+    /**
+     * method pure virtual untuk menampilkan suara hewan
+     * untuk menentukan waktu kelaparan tiap hewan.
+     */
+    virtual void printSound()=0;
     virtual int getEndurance()=0;
     virtual int getEndurance_Default()=0;
     virtual void setEndurance(int)=0;
