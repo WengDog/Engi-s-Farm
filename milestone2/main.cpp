@@ -9,9 +9,9 @@ string command;
 int sec;
 
 int main(){
-    // cout << "Masukan nama player\n";
-    // cin >> playerName;
-    Game games;
+    cout << "Masukan nama player\n";
+    cin >> playerName;
+    Game games(playerName);
     games.inputMap();
     while (1){
         //print current status games
@@ -70,6 +70,11 @@ int main(){
             games.randomMoveAnimal();
 
         games.AnimalCondition();
+
+       if (games.EndGame()){
+           cout << "GAMES END\n";
+           break;
+       }   
     }
     return 0;
 }

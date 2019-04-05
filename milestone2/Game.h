@@ -107,6 +107,8 @@ class Game{
 
         //method untuk menampilkan status atribut player
         void printAtribute();
+
+        bool EndGame();
 };
 
 #endif

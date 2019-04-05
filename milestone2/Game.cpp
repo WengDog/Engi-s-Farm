@@ -297,3 +297,15 @@ void Game::printHelp() {
 void Game::printAtribute(){
     player.Print_Atribute();
 }
+
+bool Game::EndGame(){
+    bool endGame = true;
+    for (int i = 0; i < rowMap && endGame; i++){
+        for (int j = 0; j < colMap && endGame; j++){
+            if (map_animal.GetAnimalMatrix()[i][j] != nullptr){
+                endGame = false;
+            }
+        }
+    }
+    return endGame;
+}
