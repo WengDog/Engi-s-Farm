@@ -177,7 +177,7 @@ void Player::Interact(MatrixOfAnimal A, MatrixOfFacility F){
             //valid position!
             if (A.GetAnimalMatrix()[nx][ny] != nullptr){
                 //there is animal in position (nx,ny)
-                
+
             }else if (F.GetFacility(nx, ny).GetTypeOfFacility() != '.'){
                 //there is facility in position (nx, ny)
                 char facility = F.GetFacility(nx, ny).GetTypeOfFacility();
@@ -265,11 +265,13 @@ void Player::Grow(MatrixOfLand& L){
 
 void Player::Mix(MatrixOfFacility F){
     cout << "--------------- MIX COMMAND ---------------\n";
-    for (int i = 0; i < 4; i++){
+    bool Found = false;
+    for (int i = 0; i < 4 && !Found; i++) {
         int nx = getposx() + dx[i];
         int ny = getposy() + dy[i];
         if (nx >= 0 && nx < F.GetBarMax() && ny >= 0 && ny < F.GetKolMax()){
             if (F.GetFacility(nx, ny).GetTypeOfFacility() == 'M') {
+                Found = true;
                 int num;
                 cout << "List Of Side Product\n";
                 cout << "1. Burger\n";
@@ -290,6 +292,44 @@ void Player::Mix(MatrixOfFacility F){
                         Burger B;
                         Inventory.add(B);
                     }
+                } else if(num == 2) {
+                    GoatMeat GM;
+                    int bahan1 = Inventory.find(GM);
+                    HorseMilk Hm;
+                    int bahan2 = Inventory.find(Hm);
+                    if(bahan1 != -1 && bahan2 != -1) {
+                        Inventory.remove(GM);
+                        Inventory.remove(Hm);
+                        Carbonara C;
+                        Inventory.add(C);
+                    }
+                } else if(num == 3) {
+                    CowMilk Cm;
+                    int bahan1 = Inventory.find(Cm);
+                    ChickenEgg CE;
+                    int bahan2 = Inventory.find(CE);
+                    if(bahan1 != -1 && bahan2 != -1) {
+                        Inventory.remove(Cm);
+                        Inventory.remove(CE);
+                        PieSusu PS;
+                        Inventory.add(PS);
+                    }
+                } else if(num == 4) {
+                    CowMeat CM;
+                    int bahan1 = Inventory.find(CM);
+                    HorseMilk Hm;
+                    int bahan2 = Inventory.find(Hm);
+                    DuckEgg DE;
+                    int bahan3 = Inventory.find(DE);
+                    if(bahan1 != -1 && bahan2 != -1 && bahan3 != -1) {
+                        Inventory.remove(CM);
+                        Inventory.remove(Hm);
+                        Inventory.remove(DE);
+                        GoldenMeatDespacito GMD;
+                        Inventory.add(GMD);
+                    }
+                } else {
+                    cout << "Side Product Doesn't Exist\n";
                 }
             }
         }
