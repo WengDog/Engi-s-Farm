@@ -53,7 +53,7 @@ Game::Game(string playername){
 }
 
 void Game::INTERACT(){
-    
+    player.Interact(map_animal, map_facility);
 }
 
 void Game::KILL(){
@@ -89,7 +89,7 @@ void Game::MOVERIGHT(){
 }
 
 void Game::printGame(){
-    cout << "--------Current Games --------\n";
+    cout << "-------- Current Games --------\n";
     for (int i = 0; i < rowMap; i++){
         for (int j = 0; j < colMap; j++){
             if (i == player.getposx() && j == player.getposy())
@@ -109,7 +109,7 @@ void Game::printGame(){
         }
         cout << '\n';
     }
-    cout << "------------------------------\n";
+    cout << "-------------------------------\n";
 }
 
 void Game::printInventory(){
@@ -225,7 +225,7 @@ void Game::AnimalCondition(){
         for (int j = 0; j < colMap; j++){
             if (map_animal.GetAnimalMatrix()[i][j] != nullptr){
                 Land now = map_land.GetLand(i,j);
-                if (map_animal.GetAnimalMatrix()[i][j]->getEndurance() == -5){
+                if (map_animal.GetAnimalMatrix()[i][j]->getEndurance() == -4){
                     //MATI!
                     map_animal.GetAnimalMatrix()[i][j]=nullptr;
                     Land newland(i, j, now.GetTypeOfLand(), false, now.GetGrassStatus());
@@ -248,8 +248,48 @@ void Game::AnimalCondition(){
                         int new_endurance = map_animal.GetAnimalMatrix()[i][j]->getEndurance();
                         map_animal.GetAnimalMatrix()[i][j]->setEndurance(new_endurance-1);
                     }
+                }else{
+                    int new_endurance = map_animal.GetAnimalMatrix()[i][j]->getEndurance();
+                    map_animal.GetAnimalMatrix()[i][j]->setEndurance(new_endurance-1);
                 }
             }
         }
     }
+}
+
+void Game::printHelp() {
+    cout << "--------- Help Command --------\n";
+    cout << "Command :\n";
+    cout << "1. MOVE UP\n";
+    cout << "2. MOVE DOWN\n";
+    cout << "3. MOVE RIGHT\n";
+    cout << "4. MOVE LEFT\n";
+    cout << "5. INTERACT\n";
+    cout << "6. KILL\n";
+    cout << "7. TALK\n";
+    cout << "8. MIX\n";
+    cout << "9. GROW\n";
+    cout << "10. EXIT\n";
+    cout << "11. HELP\n";
+    cout << "-------------------------------\n";
+    cout << "MAP SYMBOL :\n";
+    cout << "1. Land :\n";
+    cout << "\"-\" = Grassland\n";
+    cout << "\"#\" = Grass in Grassland\n";
+    cout << "\"0\" = Coop\n";
+    cout << "\"*\" = Grass in Coop\n";
+    cout << "\"x\" = Barn\n";
+    cout << "\"@\" = Grass in Barn\n";
+    cout << "2. Facility :\n";
+    cout << "\"T\" = Truck\n";
+    cout << "\"W\" = Well\n";
+    cout << "\"M\" = Mixer\n";
+    cout << "3. Animal :\n";
+    cout << "\"C\" = Chicken\n";
+    cout << "\"D\" = Duck\n";
+    cout << "\"G\" = Goat\n";
+    cout << "\"R\" = Rabbit\n";
+    cout << "\"H\" = Horse\n";
+    cout << "\"O\" = Cow\n";
+    cout << "-------------------------------\n";
 }

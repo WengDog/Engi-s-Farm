@@ -13,11 +13,6 @@ class Animal : public Renderable{
     //CTOR User Defined
     Animal(int);
 
-    void moveUp(); //gerak 1 petak ke atas
-    void moveDown(); //gerak 1 petak ke bawah
-    void moveLeft(); //gerak 1 petak ke kiri
-    void moveRight(); //gerak 1 petak ke kanan
-
     //pure virtual
     virtual void printSound()=0; //print suara hewan jika diajak berinteraksi
     virtual int getEndurance()=0;

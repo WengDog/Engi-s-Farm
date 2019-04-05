@@ -101,6 +101,9 @@ class Game{
 
         //method untuk cek keadaan animal
         void AnimalCondition();
+
+        //method untuk menampilkan keterangan pada layar
+        void printHelp();
 };
 
 #endif

@@ -28,6 +28,8 @@ using namespace std;
 
 #define SIRAM 1
 #define DEFWATER 100
+#define FILL_WATER_CONTAINER 10
+#define MAX_WATER_CONTAINER 20
 
 class Player : public Renderable{
     private:
@@ -78,7 +80,7 @@ class Player : public Renderable{
         void Talk(MatrixOfAnimal);
 
         //method untuk berinteraksi dengan FarmAnimal atau Facility di samping player
-        void Interact();
+        void Interact(MatrixOfAnimal, MatrixOfFacility);
 
         //method untuk menyembelih hewan penghasil daging
         void Kill(MatrixOfAnimal&, MatrixOfLand&);
@@ -86,11 +88,19 @@ class Player : public Renderable{
         //method untuk menyiram land dengan wadah air yang dimiliki
         void Grow(MatrixOfLand&);
 
+        //method untuk mengisi water container yang ada pada well
+        void FillWaterContainer();
+
+        //method untuk menjual seluruh inventory
+        void SellAllProduct();
+
         //method untuk membuat side product yang ada di mixer facility
-        void Mix();
+        void Mix(MatrixOfFacility);
 
         //method untuk mencetak seluruh isi inventory
         void Print_Inventory();
+
+
 };
 
 #endif

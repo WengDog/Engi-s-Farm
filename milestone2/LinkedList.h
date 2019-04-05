@@ -94,6 +94,10 @@ class LinkedList{
                 }
             }
         }
+
+        void clear(){
+            isi.clear();
+        }
 };
 
 #endif

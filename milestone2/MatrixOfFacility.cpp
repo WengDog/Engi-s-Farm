@@ -3,12 +3,12 @@
 #include "MatrixOfFacility.h"
 
 MatrixOfFacility::MatrixOfFacility(){
-    FacilityMatrix = new Facility*[10];
+    FacilityMatrix = new Facility*[15];
     for(int i = 0;i<10;i++) {
-        FacilityMatrix[i] = new Facility[10];
+        FacilityMatrix[i] = new Facility[15];
     }
-    BarMax = 10;
-    KolMax = 10;
+    BarMax = 15;
+    KolMax = 15;
 }
 MatrixOfFacility::MatrixOfFacility(int x,int y){
     FacilityMatrix = new Facility*[x];

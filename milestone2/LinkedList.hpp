@@ -94,6 +94,11 @@ class LinkedList{
                 }
             }
         }
+
+        //mengosongkan isi linkedlist
+        void clear(){
+            isi.clear();
+        }
 };
 
 #endif

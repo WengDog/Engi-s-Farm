@@ -11,7 +11,7 @@ int dy[] = {0, -1, 1, 0};
 Player::Player(){
     this->name = "player";
     this->waterContainer = 10;
-    this->money = 100;
+    this->money = 0;
 }
 
 //user defined constructor
@@ -105,7 +105,7 @@ void Player::moveLeft(MatrixOfLand L, MatrixOfFacility F){
 // Player bergerak ke kanan
 void Player::moveRight(MatrixOfLand L, MatrixOfFacility F){
     // Inisialisasi koordinat yang dituju
-    int next_x= getposx();
+    int next_x = getposx();
     int next_y = getposy() + 1;
     
     // Pengecekan apakah cell sudah terisi atau belum
@@ -147,8 +147,50 @@ void Player::Talk(MatrixOfAnimal A){
     cout << '\n';
 }
 
-void Player::Interact(){
-    
+void Player::FillWaterContainer(){
+    cout << "You Filled the water container\n";
+    cout << '\n';
+    if (getwaterContainer() + FILL_WATER_CONTAINER >= MAX_WATER_CONTAINER){
+        setwaterContainer(MAX_WATER_CONTAINER);
+    }else {
+        setwaterContainer(getwaterContainer() + FILL_WATER_CONTAINER);
+    }
+}
+
+void Player::SellAllProduct(){
+    cout << "You sell all your product in inventory!\n";
+    cout << '\n';
+    int size_inventory = Inventory.size();
+    for (int i = 0; i < size_inventory; i++){
+        double profit = Inventory.get(i).getPrice();
+        setmoney(getmoney() + profit);
+    }
+    Inventory.clear();
+}
+
+void Player::Interact(MatrixOfAnimal A, MatrixOfFacility F){
+    cout << "---INTERACT COMMAND---\n";
+    for (int i = 0; i < 4; i++){
+        int nx = getposx() + dx[i];
+        int ny = getposy() + dy[i];
+        if (nx >= 0 && nx < F.GetBarMax() && ny >= 0 && ny < F.GetKolMax()){
+            //valid position!
+            if (A.GetAnimalMatrix()[nx][ny] != nullptr){
+                //there is animal in position (nx,ny)
+                
+            }else if (F.GetFacility(nx, ny).GetTypeOfFacility() != '.'){
+                //there is facility in position (nx, ny)
+                char facility = F.GetFacility(nx, ny).GetTypeOfFacility();
+                if (facility == 'W'){
+                    FillWaterContainer();
+                }else if (facility == 'T'){
+                    SellAllProduct();
+                }          
+            }
+        }
+    }
+    cout << "------------------\n";
+    cout << '\n';
 }
 
 void Player::Kill(MatrixOfAnimal& A, MatrixOfLand& L){
@@ -221,8 +263,12 @@ void Player::Grow(MatrixOfLand& L){
     cout << "------------------\n";
 }
 
-void Player::Mix(){
-
+void Player::Mix(MatrixOfFacility F){
+    cout << "---MIX COMMAND---\n";
+    for (int i = 0; i < 4; i++){
+        int nx = getposx() + dx[i];
+        int ny = getposy() + dy[i];
+        if (nx >= 0 && nx < F.GetBarMax() && ny >= 0 && ny < F.GetKolMax()){
 }
 
 // Fungsi untuk menampilkan inventori yang dimiliki ke layar
