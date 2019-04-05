@@ -2,8 +2,8 @@
 
 using namespace std;
 
-//variabel 
 
+//variabel 
 int dx[] = {-1, 0, 0, 1};
 int dy[] = {0, -1, 1, 0};
 

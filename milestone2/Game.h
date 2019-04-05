@@ -3,7 +3,7 @@
 
 #include "Player.h"
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <fstream>
 #include <iomanip>
 

@@ -6,6 +6,7 @@ using namespace std;
 
 string playerName;
 string command;
+int sec;
 
 int main(){
     // cout << "Masukan nama player\n";
@@ -23,6 +24,7 @@ int main(){
         //get Command Game
         cout << "Enter command:\n";
         getline(cin, command);
+        sec++;
         cout << '\n';
 
         if (command == "INTERACT") {
@@ -46,6 +48,11 @@ int main(){
         } else if (command == "MOVE LEFT") { 
             games.MOVELEFT();
         } 
+
+        if (sec % 5 == 0)
+            games.randomMoveAnimal();
+        
+        games.AnimalCondition();
     }    
     return 0;
 }

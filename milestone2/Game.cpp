@@ -4,9 +4,10 @@
 
 using namespace std;
 
+
 //variabel 
-int dx[] = {-1, 0, 0, 1};
-int dy[] = {0, -1, 1, 0};
+int drx[] = {-1, 0, 0, 1};
+int dry[] = {0, -1, 1, 0};
 
 Game::Game(){
     //set player in game
@@ -191,12 +192,29 @@ void Game::inputMap(){
 
 void Game::randomMoveAnimal() {
     int nx, ny;
-    for(int i = 0; map_animal.GetBarMax(); i++) {
-        for(int j = 0; map_animal.GetKolMax(); j++) {
+    for(int i = 0; i < rowMap; i++) {
+        for(int j = 0; j < colMap; j++) {
             if (map_animal.GetAnimalMatrix()[i][j] != nullptr){
-                nx = map_animal.GetAnimal(i,j).getposx + (rand() % 5);
-                ny = map_animal.GetAnimal(i,j).getposy + (rand() % 5);
-                // if()
+                int random = rand()%4;
+                nx = i + drx[random];
+                random = rand()%4;
+                ny = j + dry[random];
+                if (nx >= 0 && nx < rowMap && ny >= 0 && ny < colMap){
+                    if (map_animal.GetAnimalMatrix()[nx][ny] == nullptr){
+                        if (map_facility.GetFacility(nx,ny).GetTypeOfFacility() == '.' && (nx!=player.getposx() || ny!=player.getposy())){
+                            map_animal.GetAnimalMatrix()[nx][ny] = map_animal.GetAnimalMatrix()[i][j];
+                            map_animal.GetAnimalMatrix()[i][j] = nullptr;
+
+                            Land now = map_land.GetLand(i,j);
+                            Land newLand(i, j, now.GetTypeOfLand(), false, now.GetGrassStatus());
+                            map_land.setLand(i, j, newLand);
+
+                            now = map_land.GetLand(i, j);
+                            Land adjLand(nx, ny, now.GetTypeOfLand(), true, now.GetGrassStatus());
+                            map_land.setLand(nx, ny, adjLand);
+                        }
+                    }
+                }
             }
         }
     }
