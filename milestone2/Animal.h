@@ -30,12 +30,12 @@ class Animal : public Renderable{
         virtual void printSound()=0;
         //! method pure virtual
         /*!
-         * Untuk mendapatkan waktu lapar hewan dan dapat berkurang tiap ticknya.
+         * Untuk @return integer waktu lapar hewan dan dapat berkurang tiap ticknya.
          */
         virtual int getEndurance()=0;
         //! method pure virtual
         /*!
-         * Untuk mendapatkan waktu lapar default hewan dan bersifat konstan.
+         * Untuk @return integer waktu lapar default hewan dan bersifat konstan.
          */
         virtual int getEndurance_Default()=0;
         //! method pure virtual

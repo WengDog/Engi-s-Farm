@@ -3,6 +3,7 @@
 
 #include "Cell.h"
 
+
 class Land : public Cell {
 protected:
     char TypeOfLand;  // Tipe land Coop -> C, Barn -> B, GrassLand -> G

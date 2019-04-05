@@ -1,5 +1,3 @@
-/* Kelas renderable adalah kelas abstrak membantu menampilkan objek*/
-
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 
@@ -7,31 +5,48 @@
 
 using namespace std;
 
+//! Kelas Renderable
+/*!
+ * Merupakan Abstract Base Class yang merepresentasikan posisi objek,
+ * agar membantu menampilkan objek ke layar
+ */
 class Renderable{
     protected:
-        //atribut posisi dari setiap objek yang ada pada program
-        //posx = posisi absis
-        //posy = posisi ordinat
-        int posx, posy;
-        
-        //waktu pada games
-        int time;
+        int posx; /*<! integer yang merupakan posisi absis dari objek*/
+        int posy; /*<! integer yang merupakan posisi absis dari objek*/
 
     public:
-        //Default Constructor
+        //! Konstruktor default dari kelas Renderable.
+        /*!
+         * Inisialisasi psosisi awal (0,0)
+         */
         Renderable();
-
-        //method untuk mengembalikan karakter yang merepresentasikan objek
+        //! method pure virtual
+        /*!
+         * Untuk @return karakter dari representasi objek ke layar.
+         */
         virtual char render() = 0;
 
-        //GETTER
-        //method untuk mendapatkan absis object
+        //! Getter atribut posx dari kelas Renderable.
+        /*!
+         * Untuk mendapatkan @return integer dari atribut posx dari kelas Renderable
+         */
         int getposx();
-        //method untuk mendapatkan ordinat object
+        //! Getter atribut posy dari kelas Renderable.
+        /*!
+         * Untuk mendapatkan @return integer dari atribut posy dari kelas Renderable
+         */
         int getposy();
-        
-        //SETTER
+
+        //! Setter atribut posx dari kelas Renderable.
+        /*!
+         * Untuk mengubah nilai dari atribut posx dari kelas Renderable.
+         */
         void setposx(int);
+        //! Setter atribut posy dari kelas Renderable.
+        /*!
+         * Untuk mengubah nilai dari atribut posy dari kelas Renderable.
+         */
         void setposy(int);
 };
 

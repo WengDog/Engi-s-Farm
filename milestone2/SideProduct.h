@@ -9,7 +9,7 @@
  */
 class SideProduct : public Product {
     public:
-        //! Konstruktor default dari kelas PieSusu
+        //! Konstruktor default dari kelas SideProduct
         /*! Inisialiasi atribut side_product dengan true
         */
         SideProduct();

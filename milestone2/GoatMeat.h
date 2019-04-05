@@ -3,10 +3,16 @@
 
 #include "FarmProduct.h"
 
-// Produk hasil dari kambing
+//! Kelas GoatMeat
+/*!
+ * Merupakan kelas turunan dari kelas FarmProduct yang merepresentasikan produk daging kambing.
+ * Produk hasil kelas Goat.
+ */
 class GoatMeat : public FarmProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas GoatMeat
+        /*! Inisialiasi nama produk dengan "Goat Meat" dan harga awal 12000
+        */
         GoatMeat();
 };
 

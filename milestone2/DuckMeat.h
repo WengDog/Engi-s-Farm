@@ -3,9 +3,16 @@
 
 #include "FarmProduct.h"
 
+//! Kelas DuckMeat
+/*!
+ * Merupakan kelas turunan dari kelas FarmProduct yang merepresentasikan produk daging bebek.
+ * Produk hasil kelas Duck.
+ */
 class DuckMeat : public FarmProduct {
     public:
-        // ctor default
+        //! Konstruktor default dari kelas DuckMeat
+        /*! Inisialiasi nama produk dengan "Duck Meat" dan harga awal 7000
+        */
         DuckMeat();
 };
 

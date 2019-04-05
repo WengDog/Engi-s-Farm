@@ -3,9 +3,15 @@
 
 #include "Product.h"
 
+//! Kelas FarmProduct
+/*!
+ * Merupakan kelas turunan dari kelas Product yang merepresentasikan produk peternakan.
+ */
 class FarmProduct : public Product {
     public:
-        // ctor default dengan mengimplementasikan ctor user defined pada kelas product
+        //! Konstruktor default dari kelas FarmProduct
+        /*! Inisialiasi atribut farm_product dengan true
+        */
         FarmProduct();
 
 };
