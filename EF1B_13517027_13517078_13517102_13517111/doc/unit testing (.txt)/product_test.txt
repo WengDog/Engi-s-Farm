@@ -1,10 +1,9 @@
-Suite: ChickenEgg_test_suite
-  Test: ChickenEgg_test ...passed
+Suite: Product.cpp
+  Test: Product ...passed
 
 Run Summary:    Type  Total    Ran Passed Failed Inactive
               suites      1      1    n/a      0        0
                tests      1      1      1      0        0
-             asserts      2      2      2      0      n/a
+             asserts      3      3      3      0      n/a
 
-Elapsed time =    0.000 seconds
-
+Elapsed time = 0.000 seconds
